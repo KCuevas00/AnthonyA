@@ -27,83 +27,66 @@
       }
     });
 
-    var cur = 0;
-    var timer = null;
-    var userInteracted = false;
+    var cur = -1;
 
     function setActive(idx) {
-      cur = (idx + panels.length) % panels.length;
+      if (idx === cur) return;
+      cur = idx;
       panels.forEach(function (p, i) {
         p.classList.toggle('is-active', i === cur);
       });
     }
 
-    function startTimer() {
-      stopTimer();
-      timer = setInterval(function () {
-        if (!isMobile()) return;
-        setActive(cur + 1);
-      }, 2800);
-    }
-
-    function stopTimer() {
-      if (timer) { clearInterval(timer); timer = null; }
-    }
-
-    function pauseTemporarily(ms) {
-      stopTimer();
-      setTimeout(function () {
-        if (!userInteracted) startTimer();
-      }, ms || 4000);
-    }
-
-    // Scroll-driven activation on mobile
-    var onScroll = function () {
+    // Scroll-driven expansion: whichever panel is in the viewport focal area expands
+    var ticking = false;
+    function updateOnScroll() {
       if (!isMobile()) return;
-      var mid = window.innerHeight * 0.5;
-      var bestIdx = cur;
+      var focalPoint = window.innerHeight * 0.48; // center focal line
+      var bestIdx = 0;
       var bestDist = Infinity;
+
       panels.forEach(function (p, i) {
-        var r = p.getBoundingClientRect();
-        var pMid = r.top + r.height / 2;
-        var dist = Math.abs(mid - pMid);
+        var rect = p.getBoundingClientRect();
+        var pCenter = rect.top + rect.height / 2;
+        var dist = Math.abs(focalPoint - pCenter);
         if (dist < bestDist) {
           bestDist = dist;
           bestIdx = i;
         }
       });
-      if (bestDist < 200 && bestIdx !== cur) {
-        setActive(bestIdx);
+
+      setActive(bestIdx);
+      ticking = false;
+    }
+
+    window.addEventListener('scroll', function () {
+      if (!ticking) {
+        window.requestAnimationFrame(updateOnScroll);
+        ticking = true;
       }
-      pauseTemporarily(3500);
-    };
+    }, { passive: true });
 
-    window.addEventListener('scroll', onScroll, { passive: true });
-
-    // Touch tap on mobile: first tap expands, second tap navigates
+    // Tap support: tap to expand immediately; if already expanded, tap navigates
     panels.forEach(function (p, i) {
       p.addEventListener('click', function (e) {
         if (isMobile()) {
           if (!p.classList.contains('is-active')) {
             e.preventDefault();
             setActive(i);
-            pauseTemporarily(5000);
           }
         }
       });
     });
 
-    // Start mobile simulation loop
+    // Initial check on load
     if (isMobile()) {
-      setActive(0);
-      startTimer();
+      setTimeout(updateOnScroll, 120);
     }
 
     window.addEventListener('resize', function () {
       if (isMobile()) {
-        if (!timer) startTimer();
+        updateOnScroll();
       } else {
-        stopTimer();
         panels.forEach(function (p) { p.classList.remove('is-active'); });
       }
     });
@@ -122,29 +105,11 @@
     var lines = svg.querySelectorAll('line');
     var circles = svg.querySelectorAll('circle');
 
-    var stationData = [
-      { num: '01', name: 'About', href: 'about.html', desc: 'Background, approach and practical execution' },
-      { num: '02', name: 'Projects', href: 'projects.html', desc: 'CNC, CAD, layouts and shop-floor work' },
-      { num: '03', name: 'Services', href: 'services.html', desc: 'Process support, estimating and analysis' },
-      { num: '04', name: 'Experience', href: 'experience.html', desc: 'Roles, education and r\u00e9sum\u00e9' },
-      { num: '05', name: 'Contact', href: 'contact.html', desc: 'Start a conversation about your project' }
-    ];
-
-    // Readout banner for mobile HUD
-    var readout = document.getElementById('callout-readout') || callout.parentNode.querySelector('.callout-readout');
-    if (!readout) {
-      readout = document.createElement('div');
-      readout.id = 'callout-readout';
-      readout.className = 'callout-readout';
-      callout.parentNode.insertBefore(readout, callout.nextSibling);
-    }
-
     var cur = 0;
     var timer = null;
 
     function setActive(idx) {
       cur = (idx + balls.length) % balls.length;
-      var d = stationData[cur] || stationData[0];
 
       balls.forEach(function (b, i) {
         b.classList.toggle('is-active', i === cur);
@@ -155,12 +120,6 @@
       circles.forEach(function (c, i) {
         c.classList.toggle('is-active', i === cur);
       });
-
-      if (readout) {
-        readout.innerHTML =
-          '<span class="tag">STATION ' + d.num + '</span>' +
-          '<a href="' + d.href + '"><span>' + d.name + ' \u2014 ' + d.desc + '</span><span class="arrow">\u2192</span></a>';
-      }
     }
 
     function startTimer() {
@@ -197,89 +156,46 @@
   }
 
   /* ==========================================================================
-     OPTION 3: Split Index + Photo Panel (index-3.html)
+     OPTION 3: Sheet Index with Side-by-Side Images (index-3.html)
      ========================================================================== */
   function initOption3() {
-    var splitLand = document.querySelector('.split-land');
-    if (!splitLand) return;
-    var rowsContainer = splitLand.querySelector('.rows');
-    var rows = splitLand.querySelectorAll('.rows a');
-    var layers = splitLand.querySelectorAll('.layer');
-    var cap = document.getElementById('cap');
-    if (!rows.length || !layers.length) return;
+    var container = document.querySelector('.sheet-index-wrap') || document.querySelector('.split-land');
+    if (!container) return;
+    var rows = container.querySelectorAll('.rows a, .row-link');
+    if (!rows.length) return;
 
-    var names = ['About', 'Projects', 'Services', 'Experience', 'Contact'];
-    var home = cap ? cap.textContent : 'Fig. 00 \u2014 Anthony Aughenbaugh';
     var cur = -1;
-    var timer = null;
 
-    function show(i, isSim) {
-      cur = i;
-      if (i >= 0 && i < names.length) {
-        if (rowsContainer) rowsContainer.classList.add('has-active');
-        rows.forEach(function (r, n) { r.classList.toggle('is-active', n === i); });
-        layers.forEach(function (l, n) { l.classList.toggle('on', n === i); });
-        if (cap) cap.textContent = 'Fig. 0' + (i + 1) + ' \u2014 ' + names[i];
-      } else {
-        if (rowsContainer) rowsContainer.classList.remove('has-active');
-        rows.forEach(function (r) { r.classList.remove('is-active'); });
-        layers.forEach(function (l) { l.classList.remove('on'); });
-        if (cap) cap.textContent = home;
-      }
-    }
-
-    function startTimer() {
-      stopTimer();
-      timer = setInterval(function () {
-        if (!isMobile()) return;
-        var next = (cur + 1) % names.length;
-        show(next, true);
-      }, 2800);
-    }
-
-    function stopTimer() {
-      if (timer) { clearInterval(timer); timer = null; }
-    }
-
-    function pauseTemporarily(ms) {
-      stopTimer();
-      setTimeout(function () {
-        if (isMobile()) startTimer();
-      }, ms || 4000);
-    }
-
-    // Desktop hover & focus
-    rows.forEach(function (a) {
-      var i = +a.dataset.layer;
-      ['mouseenter', 'focus'].forEach(function (ev) {
-        a.addEventListener(ev, function () {
-          if (!isMobile()) show(i, false);
-        });
+    function setActive(idx) {
+      cur = idx;
+      rows.forEach(function (r, i) {
+        r.classList.toggle('is-active', i === cur);
       });
-      ['mouseleave', 'blur'].forEach(function (ev) {
-        a.addEventListener(ev, function () {
-          if (!isMobile()) show(-1, false);
-        });
-      });
+    }
 
-      // Mobile tap interaction: preview first, navigate on second tap
-      a.addEventListener('click', function (e) {
-        if (isMobile()) {
-          if (!a.classList.contains('is-active')) {
-            e.preventDefault();
-            show(i, false);
-            pauseTemporarily(5000);
-          }
-        }
+    rows.forEach(function (r, i) {
+      r.addEventListener('mouseenter', function () {
+        setActive(i);
+      });
+      r.addEventListener('mouseleave', function () {
+        setActive(-1);
+      });
+      r.addEventListener('focus', function () {
+        setActive(i);
+      });
+      r.addEventListener('blur', function () {
+        setActive(-1);
       });
     });
 
-    // Mobile scroll-driven selection
-    window.addEventListener('scroll', function () {
+    // Scroll-driven active state on mobile
+    var ticking = false;
+    function updateOnScroll() {
       if (!isMobile()) return;
       var mid = window.innerHeight * 0.45;
-      var bestIdx = cur;
+      var bestIdx = -1;
       var bestDist = Infinity;
+
       rows.forEach(function (r, i) {
         var rect = r.getBoundingClientRect();
         var rMid = rect.top + rect.height / 2;
@@ -289,25 +205,19 @@
           bestIdx = i;
         }
       });
-      if (bestDist < 160 && bestIdx !== cur) {
-        show(bestIdx, true);
-      }
-      pauseTemporarily(3500);
-    }, { passive: true });
 
-    if (isMobile()) {
-      show(0, true);
-      startTimer();
+      if (bestDist < 200) {
+        setActive(bestIdx);
+      }
+      ticking = false;
     }
 
-    window.addEventListener('resize', function () {
-      if (isMobile()) {
-        if (!timer) startTimer();
-      } else {
-        stopTimer();
-        show(-1, false);
+    window.addEventListener('scroll', function () {
+      if (!ticking) {
+        window.requestAnimationFrame(updateOnScroll);
+        ticking = true;
       }
-    });
+    }, { passive: true });
   }
 
   /* ==========================================================================
