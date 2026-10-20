@@ -245,25 +245,7 @@
 }
 @media (max-width: 760px) { .tblock { grid-template-columns: repeat(2, 1fr); } .tblock .big, .tblock .wide { grid-column: span 2; } }
 
-/* Sheet inspector for Option 4 */
-.sheet-inspector {
-  margin-top: 1.25rem; padding: .85rem 1.15rem; border: 1px solid var(--accent);
-  background: rgba(19, 26, 34, 0.92); color: #F3F6F9; border-radius: 4px;
-  font-family: var(--mono); text-align: left; max-width: 500px; width: 100%;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.4); transition: opacity .3s, transform .3s;
-}
-.sheet-inspector-head {
-  display: flex; justify-content: space-between; align-items: baseline;
-  font-size: .75rem; letter-spacing: .08em; color: var(--warm-hover); margin-bottom: .25rem;
-}
-.sheet-inspector h3 {
-  font-family: var(--disp); font-size: 1.5rem; text-transform: uppercase; letter-spacing: .02em;
-  margin: 0 0 .2rem; color: #fff;
-}
-.sheet-inspector p { font-size: .82rem; color: #BAC6D1; margin: 0 0 .65rem; max-width: 100%; }
-.sheet-inspector .btn {
-  padding: .35rem .85rem; font-size: .82rem; background: var(--warm); border-color: var(--warm); color: #0B1118;
-}
+
 
 /* 5. Scroll-drawn toolpath */
 .path { position: relative; max-width: 760px; margin: 0 auto; padding-left: 4rem; }

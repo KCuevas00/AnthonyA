@@ -266,86 +266,11 @@
   }
 
   /* ==========================================================================
-     OPTION 4: Title Block Sheet Inspector (index-4.html)
+     OPTION 4: Title Block (index.html)
      ========================================================================== */
   function initOption4() {
-    var sheet = document.querySelector('.sheet');
-    var tblock = document.querySelector('.tblock');
-    if (!sheet || !tblock) return;
-    var links = tblock.querySelectorAll('a');
-    if (!links.length) return;
-
-    var sheetsData = [
-      { num: '01', name: 'About', href: 'about.html', desc: 'Background, approach and how I work on the shop floor.' },
-      { num: '02', name: 'Projects', href: 'projects.html', desc: 'CNC machining, CAD design, plant layouts and workflows.' },
-      { num: '03', name: 'Services', href: 'services.html', desc: 'Manufacturing process support, estimating and facility analysis.' },
-      { num: '04', name: 'Experience', href: 'experience.html', desc: 'Roles, degrees, coursework and downloadable r\u00e9sum\u00e9.' },
-      { num: '05', name: 'Contact', href: 'contact.html', desc: 'Discuss a project, shop challenge or consulting inquiry.' }
-    ];
-
-    var sheetDraw = sheet.querySelector('.sheet-draw');
-    var inspector = document.getElementById('sheet-inspector');
-    if (!inspector && sheetDraw) {
-      inspector = document.createElement('div');
-      inspector.id = 'sheet-inspector';
-      inspector.className = 'sheet-inspector';
-      sheetDraw.appendChild(inspector);
-    }
-
-    var cur = 0;
-    var timer = null;
-
-    function setActive(idx) {
-      cur = (idx + sheetsData.length) % sheetsData.length;
-      var d = sheetsData[cur];
-
-      links.forEach(function (l, i) {
-        l.classList.toggle('is-active', i === cur);
-      });
-
-      if (inspector) {
-        inspector.innerHTML =
-          '<div class="sheet-inspector-head">' +
-            '<span>DRAWING SHEET ' + d.num + ' / 05</span>' +
-            '<span>REV A \u2022 SCALE 1:1</span>' +
-          '</div>' +
-          '<h3>' + d.name + '</h3>' +
-          '<p>' + d.desc + '</p>' +
-          '<a class="btn btn-small" href="' + d.href + '">Open Sheet ' + d.num + ' \u2192</a>';
-      }
-    }
-
-    function startTimer() {
-      stopTimer();
-      timer = setInterval(function () {
-        setActive(cur + 1);
-      }, 2800);
-    }
-
-    function stopTimer() {
-      if (timer) { clearInterval(timer); timer = null; }
-    }
-
-    links.forEach(function (l, i) {
-      l.addEventListener('mouseenter', function () {
-        setActive(i);
-        stopTimer();
-      });
-      l.addEventListener('mouseleave', function () {
-        startTimer();
-      });
-      l.addEventListener('click', function (e) {
-        if (isMobile() && !l.classList.contains('is-active')) {
-          e.preventDefault();
-          setActive(i);
-          stopTimer();
-          setTimeout(startTimer, 5000);
-        }
-      });
-    });
-
-    setActive(0);
-    startTimer();
+    // Sheet inspector removed per user request
+    return;
   }
 
   /* ==========================================================================
