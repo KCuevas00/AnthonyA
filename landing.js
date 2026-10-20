@@ -41,14 +41,36 @@
     var ticking = false;
     function updateOnScroll() {
       if (!isMobile()) return;
-      var focalPoint = window.innerHeight * 0.48; // center focal line
-      var bestIdx = 0;
+      var scrollY = window.scrollY || window.pageYOffset;
+      var docHeight = document.documentElement.scrollHeight;
+      var winHeight = window.innerHeight;
+
+      // Top boundary: lock to panel 0 (About) when at or near top
+      if (scrollY <= 60) {
+        setActive(0);
+        ticking = false;
+        return;
+      }
+
+      // Bottom boundary: lock to last panel (Contact) when scrolled to bottom
+      if (scrollY + winHeight >= docHeight - 80) {
+        setActive(panels.length - 1);
+        ticking = false;
+        return;
+      }
+
+      var focalPoint = winHeight * 0.46;
+      var bestIdx = cur >= 0 ? cur : 0;
       var bestDist = Infinity;
 
       panels.forEach(function (p, i) {
         var rect = p.getBoundingClientRect();
         var pCenter = rect.top + rect.height / 2;
         var dist = Math.abs(focalPoint - pCenter);
+        // Hysteresis deadband: give currently active panel a 40px preference to prevent jumpy toggling
+        if (i === cur) {
+          dist -= 40;
+        }
         if (dist < bestDist) {
           bestDist = dist;
           bestIdx = i;
