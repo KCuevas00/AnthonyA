@@ -3,15 +3,24 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Anthony Aughenbaugh | Manufacturing &amp; Engineering Consulting</title>
+  <title>Anthony Aughenbaugh | Manufacturing &amp; Engineering Consulting (Multi-Section Portfolio)</title>
+  <meta name="description" content="Sales and Manufacturing Engineer providing manufacturing process support, CNC strategy, estimating and facility analysis in northern Illinois and southern Wisconsin.">
+  <link rel="canonical" href="https://anthonyaughenbaugh.com/"> <!-- TODO: confirm domain -->
   <meta name="theme-color" content="#131A22">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="landing.css">
   <script src="main.js" defer></script>
-  <script src="landing.js" defer></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfilePage",
+    "mainEntity": {
+      "@type": "Person",
+      "name": "Anthony Aughenbaugh",
+      "jobTitle": "Sales and Manufacturing Engineer",
+      "url": "https://anthonyaughenbaugh.com/"
+    }
+  }
+  </script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -24,11 +33,11 @@
         <span class="badge-label">Design Previews</span>
       </div>
       <nav class="design-bar-links" aria-label="Design variants">
-        <a href="index.html" class="design-link">Default</a>
+        <a href="index.html" class="design-link">Home (Title Block)</a>
         <a href="index-1.html" class="design-link">01 Panels</a>
         <a href="index-2.html" class="design-link">02 Callout</a>
         <a href="index-3.html" class="design-link">03 Sheets</a>
-        <a href="index-4.html" class="design-link" aria-current="page">04 Title Block</a>
+        <a href="index-4.html" class="design-link" aria-current="page">04 Multi-Section</a>
         <a href="index-5.html" class="design-link">05 CNC Path</a>
         <a href="projects.html" class="design-link">Gallery</a>
       </nav>
@@ -51,11 +60,12 @@
         </div>
         <ul>
           <li><a href="index.html">Home</a></li>
-          <li><a href="index.html#designs">Concepts</a></li>
+          <li><a href="#designs">Concepts</a></li>
           <li><a href="about.html">About</a></li>
           <li><a href="projects.html">Projects</a></li>
           <li><a href="services.html">Services</a></li>
           <li><a href="experience.html">Experience</a></li>
+          <!-- Insights: add <li><a href="insights.html">Insights</a></li> after first article is published -->
           <li><a class="btn btn-small" href="contact.html">Contact</a></li>
         </ul>
         <div class="site-nav-footer">
@@ -80,30 +90,258 @@
       </nav>
     </div>
   </header>
-  <main id="main" class="main-light">
-    <div class="strip"><div class="wrap"><span>Sales &amp; Manufacturing Engineer</span><span>N. Illinois / S. Wisconsin</span></div></div>
-    <div class="stage"><div class="sheet">
-      <div class="sheet-draw">
-        <div>
-          <h1>Anthony<br>Aughenbaugh</h1>
-          <p>Manufacturing &amp; engineering consulting</p>
-          <div class="sheet-inspector" id="sheet-inspector"></div>
+
+  <main id="main">
+    <!-- HERO -->
+    <section id="top" class="hero">
+      <div class="wrap hero-grid">
+        <div class="hero-copy">
+          <h1>Manufacturing execution backed by engineering analysis.</h1>
+          <p class="lead">I'm Anthony Aughenbaugh, a Sales and Manufacturing Engineer working with manufacturers and engineering teams across northern Illinois and southern Wisconsin. Hands-on technical leadership, grounded in manufacturing economics.</p>
+          <div class="cta-row">
+            <a class="btn" href="#projects">Explore projects</a>
+            <a class="btn btn-ghost" href="#contact">Discuss a project</a>
+          </div>
+        </div>
+        <figure class="hero-photo">
+          <!-- TODO: replace .ph block with <img src="images/headshot.jpg" alt="Portrait of Anthony Aughenbaugh" width="800" height="1000"> -->
+          <div class="ph ph-portrait" role="img" aria-label="Headshot placeholder"><span>Headshot<br><small>4:5 portrait</small></span></div>
+          <span class="dim dim-h" aria-hidden="true"></span>
+          <span class="dim dim-v" aria-hidden="true"></span>
+        </figure>
+      </div>
+    </section>
+
+    <!-- CAPABILITIES -->
+    <section class="section" aria-labelledby="cap-h">
+      <div class="wrap">
+        <h2 id="cap-h">What I bring to a shop floor or a project team</h2>
+        <div class="grid grid-3">
+          <article class="card">
+            <h3>CNC and manufacturing</h3>
+            <p>Process planning, machining strategy and the practical details that decide whether a part ships on time.</p>
+          </article>
+          <article class="card">
+            <h3>Analysis and economics</h3>
+            <p>Estimating, facility and process analysis, and decision support built on real cost data.</p>
+          </article>
+          <article class="card">
+            <h3>Automation and prototyping</h3>
+            <p>Controls, fixtures and CAD work taken from concept to something that runs.</p>
+          </article>
         </div>
       </div>
-<div class="tblock">
-          <div class="big"><small>Name</small><strong>Anthony Aughenbaugh</strong></div>
-          <div class="wide"><small>Role</small>Sales &amp; Mfg Engineer</div>
-          <div><small>Rev</small>A</div>
-          <div class="wide"><small>Region</small>N. Illinois / S. Wisconsin</div>
-          <div class="wide"><small>Scale</small>1:1</div>
-          <div class="wide"><small>Units</small>Inch</div>
-          <a class="wide" href="about.html"><small>Sheet 1</small><span>About</span></a>
-          <a class="wide" href="projects.html"><small>Sheet 2</small><span>Projects</span></a>
-          <a class="wide" href="services.html"><small>Sheet 3</small><span>Services</span></a>
-          <a class="big" href="experience.html"><small>Sheet 4</small><span>Experience</span></a>
-          <a class="big" href="contact.html"><small>Sheet 5</small><span>Contact</span></a>
+    </section>
+
+    <!-- DESIGN CONCEPTS (FOR DESIGN PURPOSES) -->
+    <section id="designs" class="section" aria-labelledby="designs-h" style="border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); background: rgba(27, 38, 51, 0.45);">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <p class="tag" style="margin-bottom: 0.35rem; font-family: var(--mono); color: var(--warm-hover); font-weight: 700; text-transform: uppercase; font-size: 0.72rem; letter-spacing: 0.08em;">Design Concepts &bull; Prototypes</p>
+            <h2 id="designs-h">Landing Page Design Options</h2>
+          </div>
+          <p class="lead" style="max-width: 60ch;">Interactive landing page concepts created for design review. Each separate HTML page explores a unique technical layout, aesthetic, and interaction pattern.</p>
         </div>
-    </div></div>
+        <div class="concept-grid">
+          <a class="concept-card" href="index-1.html">
+            <div>
+              <span class="concept-tag">Concept 01 &bull; Interactive Hero</span>
+              <h3>Expanding Vertical Panels</h3>
+              <p>Five dynamic vertical photo panels that expand on hover and focus with synchronized project preview imagery.</p>
+            </div>
+            <span class="concept-action">Launch Concept 01 &rarr;</span>
+          </a>
+          <a class="concept-card" href="index-2.html">
+            <div>
+              <span class="concept-tag">Concept 02 &bull; CAD Blueprint</span>
+              <h3>Technical Callout Diagram</h3>
+              <p>Precision vector pointer lines and numbered datum callouts overlaying a central portrait with mobile HUD readout.</p>
+            </div>
+            <span class="concept-action">Launch Concept 02 &rarr;</span>
+          </a>
+          <a class="concept-card" href="index-3.html">
+            <div>
+              <span class="concept-tag">Concept 03 &bull; Engineering Drawing</span>
+              <h3>Index of Sheets &amp; Layers</h3>
+              <p>Architectural drawing sheet index paired with interactive frame layers that reveal project photos per discipline.</p>
+            </div>
+            <span class="concept-action">Launch Concept 03 &rarr;</span>
+          </a>
+          <a class="concept-card" href="index-4.html">
+            <div>
+              <span class="concept-tag">Concept 04 &bull; Title Block</span>
+              <h3>CAD Drawing Specification</h3>
+              <p>Drafting title block layout with metadata properties, revision codes, scale notes, and sheet-by-sheet navigation.</p>
+            </div>
+            <span class="concept-action">Launch Concept 04 &rarr;</span>
+          </a>
+          <a class="concept-card" href="index-5.html">
+            <div>
+              <span class="concept-tag">Concept 05 &bull; CNC Machining</span>
+              <h3>G-Code Station Toolpath</h3>
+              <p>A sequential G01 machining toolpath timeline guiding users through 5 operational stations with scroll-driven cut layers.</p>
+            </div>
+            <span class="concept-action">Launch Concept 05 &rarr;</span>
+          </a>
+          <a class="concept-card" href="projects.html">
+            <div>
+              <span class="concept-tag">Full Showcase &bull; Portfolio</span>
+              <h3>Projects Gallery &amp; Filters</h3>
+              <p>NG Solutions card pattern gallery with high-resolution photography, categorized pills, and full technical briefs.</p>
+            </div>
+            <span class="concept-action">View Projects Gallery &rarr;</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- SELECTED PROJECTS -->
+    <section id="projects" class="section section-alt" aria-labelledby="proj-h">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 id="proj-h">Selected projects</h2>
+          <a class="text-link" href="projects.html">View all projects &rarr;</a>
+        </div>
+        <div class="gallery-grid" style="margin-top: 1.5rem;">
+          <a class="gallery-card" href="projects.html">
+            <img class="gallery-img" src="assets/photos/IMG_5509.jpeg" alt="Scale 3D printed miniature CNC machines on blueprint grid with shop floor layout" loading="lazy">
+            <div class="gallery-overlay">
+              <h3 class="gallery-title">Plant Layout &amp; Workflow Modeling</h3>
+              <p class="gallery-tag">Facility &amp; Capacity Analysis</p>
+            </div>
+          </a>
+          <a class="gallery-card" href="projects.html">
+            <img class="gallery-img" src="assets/photos/IMG_5659.jpeg" alt="SolidWorks CAD 3D model of custom intake manifold assembly" loading="lazy">
+            <div class="gallery-overlay">
+              <h3 class="gallery-title">SolidWorks Manifold CAD Assembly</h3>
+              <p class="gallery-tag">CAMWorks &amp; Parametric Design</p>
+            </div>
+          </a>
+          <a class="gallery-card" href="projects.html">
+            <img class="gallery-img" src="assets/photos/IMG_5998.jpeg" alt="TIG welded aluminum custom intake manifold with CNC machined runners" loading="lazy">
+            <div class="gallery-overlay">
+              <h3 class="gallery-title">Billet Aluminum Intake Manifold</h3>
+              <p class="gallery-tag">5-Axis CNC &amp; TIG Fabrication</p>
+            </div>
+          </a>
+          <a class="gallery-card" href="projects.html">
+            <img class="gallery-img" src="assets/photos/IMG_5954.jpeg" alt="Precision milled bronze plate with dowel pin and countersunk holes" loading="lazy">
+            <div class="gallery-overlay">
+              <h3 class="gallery-title">Precision Bronze Tooling Plate</h3>
+              <p class="gallery-tag">Close-Tolerance CNC Milling</p>
+            </div>
+          </a>
+          <a class="gallery-card" href="projects.html">
+            <img class="gallery-img" src="assets/photos/IMG_5963.jpeg" alt="ASTM D3359 Method A X-cut coating adhesion test coupon rated 5A with Elcometer tape" loading="lazy">
+            <div class="gallery-overlay">
+              <h3 class="gallery-title">ASTM D3359 Coating Adhesion Testing</h3>
+              <p class="gallery-tag">Quality Control &amp; Surface QA</p>
+            </div>
+          </a>
+          <a class="gallery-card" href="projects.html">
+            <img class="gallery-img" src="assets/photos/IMG_5042.jpeg" alt="Shadow-foamed 5S tool drawer with organized ER collets, sockets, and calipers" loading="lazy">
+            <div class="gallery-overlay">
+              <h3 class="gallery-title">5S Collet &amp; Tooling System</h3>
+              <p class="gallery-tag">Workstation Optimization</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services" class="section" aria-labelledby="svc-h">
+      <div class="wrap split">
+        <div>
+          <h2 id="svc-h">Consulting services</h2>
+          <p class="lead">On-site in northern Illinois and nearby southern Wisconsin, or remote where it fits the work.</p>
+          <a class="btn" href="#contact">Send an inquiry</a>
+        </div>
+        <ul class="service-list">
+          <li><h3>Manufacturing process support</h3><p>Review and improve how work moves through your shop.</p></li>
+          <li><h3>CNC strategy</h3><p>Toolpath, fixturing and machine-capability decisions.</p></li>
+          <li><h3>Estimating</h3><p>Cost models that reflect actual process time and material.</p></li>
+          <li><h3>Facility and process analysis</h3><p>Layout, flow and capacity studies.</p></li>
+          <li><h3>Project support</h3><p>Technical ownership for a defined project or phase.</p></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- WORKING APPROACH -->
+    <section id="about" class="section section-alt" aria-labelledby="about-h">
+      <div class="wrap">
+        <h2 id="about-h">How I work</h2>
+        <ol class="steps">
+          <li><h3>Understand the part and the process</h3><p>Start at the machine, the drawing and the people running them.</p></li>
+          <li><h3>Measure before changing</h3><p>Use data on time, cost and scrap to find the real constraint.</p></li>
+          <li><h3>Make the change practical</h3><p>Recommend what the shop can actually build, run and maintain.</p></li>
+          <li><h3>Document and hand off</h3><p>Leave clear records so the result lasts.</p></li>
+        </ol>
+        <p class="note"><a class="text-link" href="#experience">Read the full background</a></p> <!-- TODO: link to About page / longer bio -->
+      </div>
+    </section>
+
+    <!-- EXPERIENCE HIGHLIGHTS -->
+    <section id="experience" class="section" aria-labelledby="exp-h">
+      <div class="wrap split">
+        <div>
+          <h2 id="exp-h">Experience and education</h2>
+          <p class="lead">Manufacturing and engineering experience since 2018.</p>
+          <!-- TODO: add selectable-text PDF resume at /files/ -->
+          <a class="btn btn-ghost" href="#experience" aria-disabled="true">Download résumé (PDF)</a>
+        </div>
+        <dl class="facts">
+          <div><dt>Current role</dt><dd>Sales and Manufacturing Engineer</dd></div>
+          <div><dt>Associate</dt><dd>Engineering Science, Illinois Valley Community College</dd></div>
+          <div><dt>Bachelor's</dt><dd>Manufacturing Engineering Technology <span class="todo">[institution, year to confirm]</span></dd></div>
+          <div><dt>Master's, in progress</dt><dd>Industrial and Systems Engineering, Engineering Management <span class="todo">[institution, expected year to confirm]</span></dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="section section-alt" aria-labelledby="contact-h">
+      <div class="wrap split">
+        <div>
+          <h2 id="contact-h">Discuss a project</h2>
+          <p class="lead">Tell me what you're making or trying to improve. I'll reply by email.</p>
+          <p class="meta">Northern Illinois and southern Wisconsin, plus remote.<br>
+            <a href="mailto:contact@example.com">contact@example.com</a> <!-- TODO: real email --><br>
+            <!-- TODO: LinkedIn link when provided -->
+          </p>
+        </div>
+        <!-- TODO: point action at your form handler (Formspree, Netlify Forms, serverless function, etc.) and add CAPTCHA/Turnstile -->
+        <form id="contact-form" class="form" action="#" method="post" novalidate>
+          <div class="field">
+            <label for="name">Name</label>
+            <input id="name" name="name" type="text" autocomplete="name" required>
+          </div>
+          <div class="field">
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" autocomplete="email" required>
+          </div>
+          <div class="field">
+            <label for="message">Project details</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+          </div>
+          <div class="hp" aria-hidden="true">
+            <label for="website">Leave this field empty</label>
+            <input id="website" name="website" type="text" tabindex="-1" autocomplete="off">
+          </div>
+          <button class="btn" type="submit">Send message</button>
+          <p id="form-status" class="form-status" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
   </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <p>&copy; <span id="year">2026</span> Anthony Aughenbaugh</p>
+      <p>Northern Illinois and southern Wisconsin</p>
+      <!-- TODO: privacy notice link -->
+    </div>
+  </footer>
 </body>
 </html>
