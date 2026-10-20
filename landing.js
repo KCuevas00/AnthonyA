@@ -167,6 +167,7 @@
     var cur = -1;
 
     function setActive(idx) {
+      if (idx === cur) return;
       cur = idx;
       rows.forEach(function (r, i) {
         r.classList.toggle('is-active', i === cur);
@@ -175,40 +176,50 @@
 
     rows.forEach(function (r, i) {
       r.addEventListener('mouseenter', function () {
-        setActive(i);
-      });
-      r.addEventListener('mouseleave', function () {
-        setActive(-1);
+        if (!isMobile()) setActive(i);
       });
       r.addEventListener('focus', function () {
         setActive(i);
       });
-      r.addEventListener('blur', function () {
-        setActive(-1);
-      });
     });
 
-    // Scroll-driven active state on mobile
+    // Scroll-driven active state
     var ticking = false;
     function updateOnScroll() {
-      if (!isMobile()) return;
-      var mid = window.innerHeight * 0.45;
-      var bestIdx = -1;
+      var scrollY = window.scrollY || window.pageYOffset;
+      var docHeight = document.documentElement.scrollHeight;
+      var winHeight = window.innerHeight;
+
+      // Top boundary: always highlight About (0) when at the top
+      if (scrollY <= 60) {
+        setActive(0);
+        ticking = false;
+        return;
+      }
+
+      // Bottom boundary: always highlight Contact (last item) when scrolled to bottom
+      if (scrollY + winHeight >= docHeight - 80) {
+        setActive(rows.length - 1);
+        ticking = false;
+        return;
+      }
+
+      // Otherwise highlight whichever row is closest to viewport focal center
+      var focalPoint = winHeight * 0.46;
+      var bestIdx = 0;
       var bestDist = Infinity;
 
       rows.forEach(function (r, i) {
         var rect = r.getBoundingClientRect();
         var rMid = rect.top + rect.height / 2;
-        var dist = Math.abs(mid - rMid);
+        var dist = Math.abs(focalPoint - rMid);
         if (dist < bestDist) {
           bestDist = dist;
           bestIdx = i;
         }
       });
 
-      if (bestDist < 200) {
-        setActive(bestIdx);
-      }
+      setActive(bestIdx);
       ticking = false;
     }
 
@@ -218,6 +229,13 @@
         ticking = true;
       }
     }, { passive: true });
+
+    // Initial check on load
+    setTimeout(updateOnScroll, 100);
+
+    window.addEventListener('resize', function () {
+      updateOnScroll();
+    });
   }
 
   /* ==========================================================================
