@@ -15,6 +15,8 @@
     rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="landing.css">
+  <script src="main.js" defer></script>
+  <script src="landing.js" defer></script>
 </head>
 
 <body>
@@ -69,22 +71,6 @@
           href="mailto:contact@example.com">contact@example.com</a></div>
     </div> <!-- TODO: real email -->
   </main>
-  <script>
-    (function () {
-      var layers = document.querySelectorAll('.layer'), cap = document.getElementById('cap');
-      var names = ['About', 'Projects', 'Services', 'Experience', 'Contact'];
-      var home = cap.textContent;
-      function show(i) {
-        layers.forEach(function (l, n) { l.classList.toggle('on', n === i); });
-        cap.textContent = i < 0 ? home : 'Fig. 0' + (i + 1) + ' \u2014 ' + names[i];
-      }
-      document.querySelectorAll('.rows a').forEach(function (a) {
-        var i = +a.dataset.layer;
-        ['mouseenter', 'focus'].forEach(function (ev) { a.addEventListener(ev, function () { show(i); }); });
-        ['mouseleave', 'blur'].forEach(function (ev) { a.addEventListener(ev, function () { show(-1); }); });
-      });
-    })();
-  </script>
 </body>
 
 </html>
