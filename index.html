@@ -25,13 +25,42 @@
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
 
+  <!-- DESIGN PREVIEW BAR -->
+  <aside class="design-bar" aria-label="Design Concept Navigation">
+    <div class="wrap design-bar-inner">
+      <div class="design-bar-badge">
+        <span class="badge-dot" aria-hidden="true"></span>
+        <span class="badge-label">Design Previews</span>
+      </div>
+      <nav class="design-bar-links" aria-label="Design variants">
+        <a href="index.html" class="design-link" aria-current="page">Default</a>
+        <a href="index-1.html" class="design-link">01 Panels</a>
+        <a href="index-2.html" class="design-link">02 Callout</a>
+        <a href="index-3.html" class="design-link">03 Sheets</a>
+        <a href="index-4.html" class="design-link">04 Title Block</a>
+        <a href="index-5.html" class="design-link">05 CNC Path</a>
+        <a href="projects.html" class="design-link">Gallery</a>
+      </nav>
+    </div>
+  </aside>
+
   <header class="site-header">
     <div class="wrap header-inner">
       <a class="brand" href="index.html">Anthony Aughenbaugh</a>
-      <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav">Menu</button>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Toggle navigation menu">
+        <span class="nav-toggle-box" aria-hidden="true">
+          <span class="nav-toggle-line"></span>
+          <span class="nav-toggle-line"></span>
+          <span class="nav-toggle-line"></span>
+        </span>
+      </button>
       <nav id="site-nav" class="site-nav" aria-label="Primary">
+        <div class="site-nav-header">
+          <span class="site-nav-label">Navigation</span>
+        </div>
         <ul>
           <li><a href="index.html" aria-current="page">Home</a></li>
+          <li><a href="#designs">Concepts</a></li>
           <li><a href="about.html">About</a></li>
           <li><a href="projects.html">Projects</a></li>
           <li><a href="services.html">Services</a></li>
@@ -39,6 +68,11 @@
           <!-- Insights: add <li><a href="insights.html">Insights</a></li> after first article is published -->
           <li><a class="btn btn-small" href="contact.html">Contact</a></li>
         </ul>
+        <div class="site-nav-footer">
+          <span class="site-nav-footer-label">Region &amp; Inquiries</span>
+          <p>Northern Illinois &amp; Southern Wisconsin</p>
+          <a href="mailto:anthonyaughenbaugh@gmail.com">anthonyaughenbaugh@gmail.com</a>
+        </div>
       </nav>
     </div>
   </header>
@@ -81,6 +115,69 @@
             <h3>Automation and prototyping</h3>
             <p>Controls, fixtures and CAD work taken from concept to something that runs.</p>
           </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- DESIGN CONCEPTS (FOR DESIGN PURPOSES) -->
+    <section id="designs" class="section" aria-labelledby="designs-h" style="border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); background: rgba(27, 38, 51, 0.45);">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <p class="tag" style="margin-bottom: 0.35rem; font-family: var(--mono); color: var(--warm-hover); font-weight: 700; text-transform: uppercase; font-size: 0.72rem; letter-spacing: 0.08em;">Design Concepts &bull; Prototypes</p>
+            <h2 id="designs-h">Landing Page Design Options</h2>
+          </div>
+          <p class="lead" style="max-width: 60ch;">Interactive landing page concepts created for design review. Each separate HTML page explores a unique technical layout, aesthetic, and interaction pattern.</p>
+        </div>
+        <div class="concept-grid">
+          <a class="concept-card" href="index-1.html">
+            <div>
+              <span class="concept-tag">Concept 01 &bull; Interactive Hero</span>
+              <h3>Expanding Vertical Panels</h3>
+              <p>Five dynamic vertical photo panels that expand on hover and focus with synchronized project preview imagery.</p>
+            </div>
+            <span class="concept-action">Launch Concept 01 &rarr;</span>
+          </a>
+          <a class="concept-card" href="index-2.html">
+            <div>
+              <span class="concept-tag">Concept 02 &bull; CAD Blueprint</span>
+              <h3>Technical Callout Diagram</h3>
+              <p>Precision vector pointer lines and numbered datum callouts overlaying a central portrait with mobile HUD readout.</p>
+            </div>
+            <span class="concept-action">Launch Concept 02 &rarr;</span>
+          </a>
+          <a class="concept-card" href="index-3.html">
+            <div>
+              <span class="concept-tag">Concept 03 &bull; Engineering Drawing</span>
+              <h3>Index of Sheets &amp; Layers</h3>
+              <p>Architectural drawing sheet index paired with interactive frame layers that reveal project photos per discipline.</p>
+            </div>
+            <span class="concept-action">Launch Concept 03 &rarr;</span>
+          </a>
+          <a class="concept-card" href="index-4.html">
+            <div>
+              <span class="concept-tag">Concept 04 &bull; Title Block</span>
+              <h3>CAD Drawing Specification</h3>
+              <p>Drafting title block layout with metadata properties, revision codes, scale notes, and sheet-by-sheet navigation.</p>
+            </div>
+            <span class="concept-action">Launch Concept 04 &rarr;</span>
+          </a>
+          <a class="concept-card" href="index-5.html">
+            <div>
+              <span class="concept-tag">Concept 05 &bull; CNC Machining</span>
+              <h3>G-Code Station Toolpath</h3>
+              <p>A sequential G01 machining toolpath timeline guiding users through 5 operational stations with scroll-driven cut layers.</p>
+            </div>
+            <span class="concept-action">Launch Concept 05 &rarr;</span>
+          </a>
+          <a class="concept-card" href="projects.html">
+            <div>
+              <span class="concept-tag">Full Showcase &bull; Portfolio</span>
+              <h3>Projects Gallery &amp; Filters</h3>
+              <p>NG Solutions card pattern gallery with high-resolution photography, categorized pills, and full technical briefs.</p>
+            </div>
+            <span class="concept-action">View Projects Gallery &rarr;</span>
+          </a>
         </div>
       </div>
     </section>

@@ -13,19 +13,53 @@
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
 
+  <!-- DESIGN PREVIEW BAR -->
+  <aside class="design-bar" aria-label="Design Concept Navigation">
+    <div class="wrap design-bar-inner">
+      <div class="design-bar-badge">
+        <span class="badge-dot" aria-hidden="true"></span>
+        <span class="badge-label">Design Previews</span>
+      </div>
+      <nav class="design-bar-links" aria-label="Design variants">
+        <a href="index.html" class="design-link">Default</a>
+        <a href="index-1.html" class="design-link">01 Panels</a>
+        <a href="index-2.html" class="design-link">02 Callout</a>
+        <a href="index-3.html" class="design-link">03 Sheets</a>
+        <a href="index-4.html" class="design-link">04 Title Block</a>
+        <a href="index-5.html" class="design-link">05 CNC Path</a>
+        <a href="projects.html" class="design-link" aria-current="page">Gallery</a>
+      </nav>
+    </div>
+  </aside>
+
   <header class="site-header">
     <div class="wrap header-inner">
       <a class="brand" href="index.html">Anthony Aughenbaugh</a>
-      <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav">Menu</button>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Toggle navigation menu">
+        <span class="nav-toggle-box" aria-hidden="true">
+          <span class="nav-toggle-line"></span>
+          <span class="nav-toggle-line"></span>
+          <span class="nav-toggle-line"></span>
+        </span>
+      </button>
       <nav id="site-nav" class="site-nav" aria-label="Primary">
+        <div class="site-nav-header">
+          <span class="site-nav-label">Navigation</span>
+        </div>
         <ul>
           <li><a href="index.html">Home</a></li>
+          <li><a href="index.html#designs">Concepts</a></li>
           <li><a href="about.html">About</a></li>
           <li><a href="projects.html" aria-current="page">Projects</a></li>
           <li><a href="services.html">Services</a></li>
           <li><a href="experience.html">Experience</a></li>
           <li><a class="btn btn-small" href="contact.html">Contact</a></li>
         </ul>
+        <div class="site-nav-footer">
+          <span class="site-nav-footer-label">Region &amp; Inquiries</span>
+          <p>Northern Illinois &amp; Southern Wisconsin</p>
+          <a href="mailto:anthonyaughenbaugh@gmail.com">anthonyaughenbaugh@gmail.com</a>
+        </div>
       </nav>
     </div>
   </header>

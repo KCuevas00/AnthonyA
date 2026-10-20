@@ -5,24 +5,49 @@
   var year = document.getElementById('year');
   if (year) year.textContent = new Date().getFullYear();
 
-  // Mobile navigation
+  // Mobile navigation drawer & morphing hamburger
   var toggle = document.querySelector('.nav-toggle');
   var nav = document.getElementById('site-nav');
   if (toggle && nav) {
+    var backdrop = document.querySelector('.nav-backdrop');
+    if (!backdrop) {
+      backdrop = document.createElement('div');
+      backdrop.className = 'nav-backdrop';
+      backdrop.setAttribute('aria-hidden', 'true');
+      document.body.appendChild(backdrop);
+    }
+
     var setOpen = function (open) {
       nav.classList.toggle('open', open);
+      toggle.classList.toggle('open', open);
       toggle.setAttribute('aria-expanded', String(open));
+      toggle.setAttribute('aria-label', open ? 'Close navigation menu' : 'Toggle navigation menu');
+      backdrop.classList.toggle('active', open);
+      document.body.classList.toggle('nav-open', open);
     };
+
     toggle.addEventListener('click', function () {
       setOpen(!nav.classList.contains('open'));
     });
+
+    backdrop.addEventListener('click', function () {
+      setOpen(false);
+    });
+
     nav.addEventListener('click', function (e) {
       if (e.target.closest('a')) setOpen(false);
     });
+
     document.addEventListener('keydown', function (e) {
       if (e.key === 'Escape' && nav.classList.contains('open')) {
         setOpen(false);
         toggle.focus();
+      }
+    });
+
+    window.addEventListener('resize', function () {
+      if (window.innerWidth > 860 && nav.classList.contains('open')) {
+        setOpen(false);
       }
     });
   }
@@ -108,6 +133,20 @@
           }
         });
       });
+    });
+  }
+
+  // Design switcher: ensure active link matches current filename
+  var designLinks = document.querySelectorAll('.design-link');
+  if (designLinks.length) {
+    var rawPath = window.location.pathname.split('/').pop() || 'index.html';
+    var curPage = rawPath.split('?')[0].split('#')[0] || 'index.html';
+    designLinks.forEach(function (link) {
+      var href = link.getAttribute('href');
+      if (href === curPage) {
+        designLinks.forEach(function (l) { l.removeAttribute('aria-current'); });
+        link.setAttribute('aria-current', 'page');
+      }
     });
   }
 })();
