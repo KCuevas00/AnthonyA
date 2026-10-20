@@ -2,7 +2,7 @@
   'use strict';
 
   var isMobile = function () {
-    return window.innerWidth <= 768 || window.matchMedia('(hover: none)').matches;
+    return window.innerWidth <= 768;
   };
 
   /* ==========================================================================

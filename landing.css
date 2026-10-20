@@ -262,8 +262,10 @@
 }
 .strip .wrap { display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
 .stage { min-height: calc(100svh - 4rem - 2.4rem); display: flex; flex-direction: column; justify-content: center; padding: 1.25rem 0; }
-.stage.bleed { padding: 6px; justify-content: stretch; }
-.stage.bleed .panels { height: calc(100svh - 4rem - 2.4rem - 12px); }
+@media (min-width: 769px) {
+  .stage.bleed { padding: 6px; justify-content: stretch; }
+  .stage.bleed .panels { height: calc(100svh - 4rem - 2.4rem - 12px); }
+}
 .stage .callout { max-width: 980px; width: 100%; }
 .stage .callout .ph { top: 2%; height: 96%; }
 .stage .index .nm { font-size: clamp(2.6rem, 9vw, 7rem); }
