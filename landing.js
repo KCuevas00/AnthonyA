@@ -37,47 +37,45 @@
       });
     }
 
-    // Scroll-driven expansion: whichever panel is in the viewport focal area expands
+    // Calculate zone index based on scroll progress with a hysteresis deadband
+    function getZoneFromProgress(progress, currentIdx, total) {
+      if (total <= 1) return 0;
+      if (progress <= 0.04) return 0;
+      if (progress >= 0.94) return total - 1;
+
+      var segment = 1 / total;
+      var hysteresis = segment * 0.28; // 28% deadband gives rock-solid stability
+
+      if (currentIdx >= 0 && currentIdx < total) {
+        var minBound = (currentIdx * segment) - (currentIdx > 0 ? hysteresis : 0);
+        var maxBound = ((currentIdx + 1) * segment) + (currentIdx < total - 1 ? hysteresis : 0);
+        if (progress >= minBound && progress <= maxBound) {
+          return currentIdx;
+        }
+      }
+
+      var raw = Math.floor(progress / segment);
+      return Math.min(Math.max(raw, 0), total - 1);
+    }
+
+    // Scroll-driven expansion: perfectly decoupled from layout height animations
     var ticking = false;
     function updateOnScroll() {
       if (!isMobile()) return;
       var scrollY = window.scrollY || window.pageYOffset;
       var docHeight = document.documentElement.scrollHeight;
       var winHeight = window.innerHeight;
+      var maxScroll = docHeight - winHeight;
 
-      // Top boundary: lock to panel 0 (About) when at or near top
-      if (scrollY <= 60) {
+      if (maxScroll <= 10) {
         setActive(0);
         ticking = false;
         return;
       }
 
-      // Bottom boundary: lock to last panel (Contact) when scrolled to bottom
-      if (scrollY + winHeight >= docHeight - 80) {
-        setActive(panels.length - 1);
-        ticking = false;
-        return;
-      }
-
-      var focalPoint = winHeight * 0.46;
-      var bestIdx = cur >= 0 ? cur : 0;
-      var bestDist = Infinity;
-
-      panels.forEach(function (p, i) {
-        var rect = p.getBoundingClientRect();
-        var pCenter = rect.top + rect.height / 2;
-        var dist = Math.abs(focalPoint - pCenter);
-        // Hysteresis deadband: give currently active panel a 40px preference to prevent jumpy toggling
-        if (i === cur) {
-          dist -= 40;
-        }
-        if (dist < bestDist) {
-          bestDist = dist;
-          bestIdx = i;
-        }
-      });
-
-      setActive(bestIdx);
+      var progress = Math.min(Math.max(scrollY / maxScroll, 0), 1);
+      var targetIdx = getZoneFromProgress(progress, cur, panels.length);
+      setActive(targetIdx);
       ticking = false;
     }
 
@@ -88,13 +86,20 @@
       }
     }, { passive: true });
 
-    // Tap support: tap to expand immediately; if already expanded, tap navigates
+    // Tap support: tap to expand and smoothly scroll to that tile's zone; if already expanded, tap navigates
     panels.forEach(function (p, i) {
       p.addEventListener('click', function (e) {
         if (isMobile()) {
           if (!p.classList.contains('is-active')) {
             e.preventDefault();
             setActive(i);
+            var docHeight = document.documentElement.scrollHeight;
+            var winHeight = window.innerHeight;
+            var maxScroll = docHeight - winHeight;
+            if (maxScroll > 0) {
+              var targetScroll = (i / (panels.length - 1)) * maxScroll;
+              window.scrollTo({ top: targetScroll, behavior: 'smooth' });
+            }
           }
         }
       });
