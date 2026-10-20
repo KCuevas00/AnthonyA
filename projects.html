@@ -1,1 +1,218 @@
-hello world
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Projects &amp; Gallery | Anthony Aughenbaugh — Manufacturing &amp; Engineering Consulting</title>
+  <meta name="description" content="Engineering and manufacturing gallery featuring CNC machining, CAD/CAM models, facility layouts, tooling systems, and quality inspection across Northern Illinois.">
+  <link rel="canonical" href="https://anthonyaughenbaugh.com/projects.html">
+  <meta name="theme-color" content="#131A22">
+  <link rel="stylesheet" href="styles.css">
+  <script src="main.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="index.html">Anthony Aughenbaugh</a>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav">Menu</button>
+      <nav id="site-nav" class="site-nav" aria-label="Primary">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="projects.html" aria-current="page">Projects</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="experience.html">Experience</a></li>
+          <li><a class="btn btn-small" href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- PAGE HERO -->
+    <section class="section" style="padding-bottom: 2rem;">
+      <div class="wrap">
+        <p class="tag" style="margin-bottom: 0.5rem;">Engineering Portfolio</p>
+        <h1>Selected Projects &amp; Field Work</h1>
+        <p class="lead">Hands-on shop floor execution, 5-axis CNC strategy, SolidWorks CAD modeling, facility layout planning, and certified quality testing across manufacturing facilities.</p>
+        
+        <!-- Category Filter Pills -->
+        <div class="filter-bar" role="toolbar" aria-label="Project filter">
+          <button class="filter-btn active" data-filter="all">All Projects</button>
+          <button class="filter-btn" data-filter="cnc">CNC &amp; Fabrication</button>
+          <button class="filter-btn" data-filter="cad">CAD &amp; Prototyping</button>
+          <button class="filter-btn" data-filter="facility">Facility &amp; Flow</button>
+          <button class="filter-btn" data-filter="lean">5S &amp; Tooling</button>
+          <button class="filter-btn" data-filter="quality">Testing &amp; QA</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- GALLERY GRID (NGSOLUTIONS STYLE) -->
+    <section class="section section-alt" style="padding-top: 3.5rem;">
+      <div class="wrap">
+        <div class="gallery-grid" id="project-gallery">
+          
+          <!-- Card 1: Facility Modeling -->
+          <article class="gallery-card" data-category="facility">
+            <img class="gallery-img" src="assets/photos/IMG_5509.jpeg" alt="Scale 3D printed miniature CNC machines on blueprint grid with shop floor layout" loading="lazy">
+            <div class="gallery-overlay">
+              <h2 class="gallery-title">Plant Layout &amp; Workflow Modeling</h2>
+              <p class="gallery-tag">Facility &amp; Capacity Analysis</p>
+            </div>
+          </article>
+
+          <!-- Card 2: SolidWorks CAD -->
+          <article class="gallery-card" data-category="cad">
+            <img class="gallery-img" src="assets/photos/IMG_5659.jpeg" alt="SolidWorks CAD 3D model of custom intake manifold assembly" loading="lazy">
+            <div class="gallery-overlay">
+              <h2 class="gallery-title">SolidWorks Manifold CAD Assembly</h2>
+              <p class="gallery-tag">CAMWorks &amp; Parametric Design</p>
+            </div>
+          </article>
+
+          <!-- Card 3: Billet Intake Manifold -->
+          <article class="gallery-card" data-category="cnc">
+            <img class="gallery-img" src="assets/photos/IMG_5998.jpeg" alt="TIG welded aluminum custom intake manifold with CNC machined runners" loading="lazy">
+            <div class="gallery-overlay">
+              <h2 class="gallery-title">Billet Aluminum Intake Manifold</h2>
+              <p class="gallery-tag">5-Axis CNC &amp; TIG Fabrication</p>
+            </div>
+          </article>
+
+          <!-- Card 4: Bronze Plate -->
+          <article class="gallery-card" data-category="cnc">
+            <img class="gallery-img" src="assets/photos/IMG_5954.jpeg" alt="Precision milled bronze plate with dowel pin and countersunk holes" loading="lazy">
+            <div class="gallery-overlay">
+              <h2 class="gallery-title">Precision Bronze Tooling Plate</h2>
+              <p class="gallery-tag">Close-Tolerance CNC Milling</p>
+            </div>
+          </article>
+
+          <!-- Card 5: ASTM D3359 Adhesion Testing -->
+          <article class="gallery-card" data-category="quality">
+            <img class="gallery-img" src="assets/photos/IMG_5963.jpeg" alt="ASTM D3359 Method A X-cut coating adhesion test coupon rated 5A with Elcometer tape" loading="lazy">
+            <div class="gallery-overlay">
+              <h2 class="gallery-title">ASTM D3359 Coating Adhesion Testing</h2>
+              <p class="gallery-tag">Quality Control &amp; Surface QA</p>
+            </div>
+          </article>
+
+          <!-- Card 6: 5S Drawer -->
+          <article class="gallery-card" data-category="lean">
+            <img class="gallery-img" src="assets/photos/IMG_5042.jpeg" alt="Shadow-foamed 5S tool drawer with organized ER collets, sockets, and calipers" loading="lazy">
+            <div class="gallery-overlay">
+              <h2 class="gallery-title">5S Collet &amp; Tooling System</h2>
+              <p class="gallery-tag">Workstation Optimization</p>
+            </div>
+          </article>
+
+          <!-- Card 7: Press Brake Brackets -->
+          <article class="gallery-card" data-category="cnc">
+            <img class="gallery-img" src="assets/photos/IMG_6252.jpeg" alt="Formed sheet metal channel brackets with punched mounting slots" loading="lazy">
+            <div class="gallery-overlay">
+              <h2 class="gallery-title">Formed Channel Mounting Brackets</h2>
+              <p class="gallery-tag">Press Brake &amp; Sheet Metal</p>
+            </div>
+          </article>
+
+          <!-- Card 8: Laser cut shroud -->
+          <article class="gallery-card" data-category="cnc">
+            <img class="gallery-img" src="assets/photos/IMG_6396.jpeg" alt="Formed chassis shroud panels with precision finish on laser grid" loading="lazy">
+            <div class="gallery-overlay">
+              <h2 class="gallery-title">Chassis Shroud Fabrication</h2>
+              <p class="gallery-tag">Precision Forming &amp; Finishing</p>
+            </div>
+          </article>
+
+          <!-- Card 9: Tooling cart -->
+          <article class="gallery-card" data-category="lean">
+            <img class="gallery-img" src="assets/photos/IMG_4997.jpeg" alt="Mobile CNC toolholder management rack with organized tool cones" loading="lazy">
+            <div class="gallery-overlay">
+              <h2 class="gallery-title">Mobile CNC Toolholder Management</h2>
+              <p class="gallery-tag">Shop Floor Logistics</p>
+            </div>
+          </article>
+
+          <!-- Card 10: Assembly bench -->
+          <article class="gallery-card" data-category="lean">
+            <img class="gallery-img" src="assets/photos/IMG_5297.jpeg" alt="Ergonomic industrial assembly workbench with task lighting and tool rails" loading="lazy">
+            <div class="gallery-overlay">
+              <h2 class="gallery-title">Ergonomic Assembly Workstation</h2>
+              <p class="gallery-tag">Lean Cell Design</p>
+            </div>
+          </article>
+
+          <!-- Card 11: Sheet metal bracket -->
+          <article class="gallery-card" data-category="cad">
+            <img class="gallery-img" src="assets/photos/IMG_5850.jpeg" alt="Custom formed structural bracket with durable satin black finish" loading="lazy">
+            <div class="gallery-overlay">
+              <h2 class="gallery-title">Custom Formed Structural Bracket</h2>
+              <p class="gallery-tag">Sheet Metal Prototyping</p>
+            </div>
+          </article>
+
+          <!-- Card 12: CNC setup -->
+          <article class="gallery-card" data-category="cnc">
+            <img class="gallery-img" src="assets/photos/IMG_5815.jpeg" alt="Multi-axis CNC fixturing and tooling setup on mill bed" loading="lazy">
+            <div class="gallery-overlay">
+              <h2 class="gallery-title">Multi-Axis CNC Fixturing Setup</h2>
+              <p class="gallery-tag">Process Planning &amp; Rigidity</p>
+            </div>
+          </article>
+
+          <!-- Card 13: Cross Hatch Test -->
+          <article class="gallery-card" data-category="quality">
+            <img class="gallery-img" src="assets/photos/IMG_5962.jpeg" alt="Cross hatch coating adhesion inspection coupon with Elcometer tape" loading="lazy">
+            <div class="gallery-overlay">
+              <h2 class="gallery-title">Cross-Hatch Adhesion Analysis</h2>
+              <p class="gallery-tag">Elcometer ASTM D3359 Testing</p>
+            </div>
+          </article>
+
+          <!-- Card 14: Intake Runner Geometry -->
+          <article class="gallery-card" data-category="cnc">
+            <img class="gallery-img" src="assets/photos/IMG_6001.jpeg" alt="Detailed view of welded CNC intake runners with precision port alignment" loading="lazy">
+            <div class="gallery-overlay">
+              <h2 class="gallery-title">Multi-Port Intake Runner Geometry</h2>
+              <p class="gallery-tag">TIG Fabrication &amp; Porting</p>
+            </div>
+          </article>
+
+          <!-- Card 15: Blueprint Layout -->
+          <article class="gallery-card" data-category="facility">
+            <img class="gallery-img" src="assets/photos/IMG_5514.jpeg" alt="Machinery layout with material flow arrows on facility blueprint grid" loading="lazy">
+            <div class="gallery-overlay">
+              <h2 class="gallery-title">Cellular Manufacturing Floor Plan</h2>
+              <p class="gallery-tag">Scale Blueprint &amp; Flow Matrix</p>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- CALL TO ACTION -->
+    <section class="section">
+      <div class="wrap split">
+        <div>
+          <h2>Have a machining, CAD, or plant layout challenge?</h2>
+          <p class="lead">From fixture optimization to full plant floor capacity analysis, let's look at the numbers and build a practical solution.</p>
+        </div>
+        <div>
+          <a class="btn" href="contact.html">Discuss a project</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <p>&copy; <span id="year">2026</span> Anthony Aughenbaugh. All rights reserved.</p>
+      <p class="meta">Northern Illinois &amp; Southern Wisconsin &bull; Manufacturing &amp; Engineering Consulting</p>
+    </div>
+  </footer>
+</body>
+</html>

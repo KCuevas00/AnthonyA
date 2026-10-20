@@ -88,4 +88,26 @@
       say('Form handler not connected yet. See the TODO in main.js.', 'err');
     });
   }
+
+  // Gallery category filter (for projects.html)
+  var filterButtons = document.querySelectorAll('.filter-btn');
+  var galleryCards = document.querySelectorAll('#project-gallery .gallery-card');
+  if (filterButtons.length && galleryCards.length) {
+    filterButtons.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var filter = btn.getAttribute('data-filter');
+        filterButtons.forEach(function (b) { b.classList.remove('active'); });
+        btn.classList.add('active');
+
+        galleryCards.forEach(function (card) {
+          var category = card.getAttribute('data-category');
+          if (filter === 'all' || category === filter) {
+            card.style.display = 'block';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+  }
 })();
