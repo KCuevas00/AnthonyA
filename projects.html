@@ -8,29 +8,11 @@
   <link rel="canonical" href="https://anthonyaughenbaugh.com/projects.html">
   <meta name="theme-color" content="#131A22">
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="landing.css">
   <script src="main.js" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
-
-  <!-- DESIGN PREVIEW BAR -->
-  <aside class="design-bar" aria-label="Design Concept Navigation">
-    <div class="wrap design-bar-inner">
-      <div class="design-bar-badge">
-        <span class="badge-dot" aria-hidden="true"></span>
-        <span class="badge-label">Design Previews</span>
-      </div>
-      <nav class="design-bar-links" aria-label="Design variants">
-        <a href="index.html" class="design-link">Home (Title Block)</a>
-        <a href="index-1.html" class="design-link">01 Panels</a>
-        <a href="index-2.html" class="design-link">02 Callout</a>
-        <a href="index-3.html" class="design-link">03 Sheets</a>
-        <a href="index-4.html" class="design-link">04 Multi-Section</a>
-        <a href="index-5.html" class="design-link">05 CNC Path</a>
-        <a href="projects.html" class="design-link" aria-current="page">Gallery</a>
-      </nav>
-    </div>
-  </aside>
 
   <header class="site-header">
     <div class="wrap header-inner">
@@ -48,7 +30,6 @@
         </div>
         <ul>
           <li><a href="index.html">Home</a></li>
-          <li><a href="index.html#designs">Concepts</a></li>
           <li><a href="about.html">About</a></li>
           <li><a href="projects.html" aria-current="page">Projects</a></li>
           <li><a href="services.html">Services</a></li>
@@ -78,166 +59,321 @@
     </div>
   </header>
 
-  <main id="main">
-    <!-- PAGE HERO -->
-    <section class="section" style="padding-bottom: 2rem;">
+  <main id="main" class="main-light">
+    <div class="strip"><div class="wrap"><span>Sheet 02 &bull; Project Directory</span><span>N. Illinois / S. Wisconsin</span></div></div>
+
+    <section class="gallery-section">
       <div class="wrap">
-        <p class="tag" style="margin-bottom: 0.5rem;">Engineering Portfolio</p>
-        <h1>Selected Projects &amp; Field Work</h1>
-        <p class="lead">Hands-on shop floor execution, 5-axis CNC strategy, SolidWorks CAD modeling, facility layout planning, and certified quality testing across manufacturing facilities.</p>
-        
-        <!-- Category Filter Pills -->
-        <div class="filter-bar" role="toolbar" aria-label="Project filter">
-          <button class="filter-btn active" data-filter="all">All Projects</button>
-          <button class="filter-btn" data-filter="cnc">CNC &amp; Fabrication</button>
-          <button class="filter-btn" data-filter="cad">CAD &amp; Prototyping</button>
-          <button class="filter-btn" data-filter="facility">Facility &amp; Flow</button>
-          <button class="filter-btn" data-filter="lean">5S &amp; Tooling</button>
-          <button class="filter-btn" data-filter="quality">Testing &amp; QA</button>
-        </div>
-      </div>
-    </section>
-
-    <!-- GALLERY GRID (NGSOLUTIONS STYLE) -->
-    <section class="section section-alt" style="padding-top: 3.5rem;">
-      <div class="wrap">
-        <div class="gallery-grid" id="project-gallery">
-          
-          <!-- Card 1: Facility Modeling -->
-          <article class="gallery-card" data-category="facility">
-            <img class="gallery-img" src="assets/photos/IMG_5509.jpeg" alt="Scale 3D printed miniature CNC machines on blueprint grid with shop floor layout" loading="lazy">
-            <div class="gallery-overlay">
-              <h2 class="gallery-title">Plant Layout &amp; Workflow Modeling</h2>
-              <p class="gallery-tag">Facility &amp; Capacity Analysis</p>
+        <!-- TITLE BLOCK GALLERY SHEET -->
+        <div class="gallery-sheet">
+          <!-- Top Title Cell & Interactive Filter Switchboard -->
+          <div class="gallery-tblock-header">
+            <div class="gallery-tblock-title">
+              <small>Drawing Sheet 02 &bull; Portfolio</small>
+              <strong>PROJECTS</strong>
             </div>
-          </article>
-
-          <!-- Card 2: SolidWorks CAD -->
-          <article class="gallery-card" data-category="cad">
-            <img class="gallery-img" src="assets/photos/IMG_5659.jpeg" alt="SolidWorks CAD 3D model of custom intake manifold assembly" loading="lazy">
-            <div class="gallery-overlay">
-              <h2 class="gallery-title">SolidWorks Manifold CAD Assembly</h2>
-              <p class="gallery-tag">CAMWorks &amp; Parametric Design</p>
+            <div class="gallery-tblock-filters" role="toolbar" aria-label="Filter projects by discipline">
+              <button type="button" class="filter-cell active" data-filter="all">
+                <small>FILTER 00 &bull; INDEX</small>
+                <span>All Projects <b class="cell-count">(15)</b></span>
+              </button>
+              <button type="button" class="filter-cell" data-filter="cnc">
+                <small>FILTER 01 &bull; 5-AXIS / MILL</small>
+                <span>CNC &amp; Fab <b class="cell-count">(6)</b></span>
+              </button>
+              <button type="button" class="filter-cell" data-filter="cad">
+                <small>FILTER 02 &bull; SOLIDWORKS</small>
+                <span>CAD &amp; Models <b class="cell-count">(2)</b></span>
+              </button>
+              <button type="button" class="filter-cell" data-filter="facility">
+                <small>FILTER 03 &bull; PLANT LAYOUT</small>
+                <span>Facility &amp; Flow <b class="cell-count">(2)</b></span>
+              </button>
+              <button type="button" class="filter-cell" data-filter="lean">
+                <small>FILTER 04 &bull; 5S / KAIZEN</small>
+                <span>5S &amp; Tooling <b class="cell-count">(3)</b></span>
+              </button>
+              <button type="button" class="filter-cell" data-filter="quality">
+                <small>FILTER 05 &bull; ASTM TESTING</small>
+                <span>Testing &amp; QA <b class="cell-count">(2)</b></span>
+              </button>
             </div>
-          </article>
+          </div>
 
-          <!-- Card 3: Billet Intake Manifold -->
-          <article class="gallery-card" data-category="cnc">
-            <img class="gallery-img" src="assets/photos/IMG_5998.jpeg" alt="TIG welded aluminum custom intake manifold with CNC machined runners" loading="lazy">
-            <div class="gallery-overlay">
-              <h2 class="gallery-title">Billet Aluminum Intake Manifold</h2>
-              <p class="gallery-tag">5-Axis CNC &amp; TIG Fabrication</p>
-            </div>
-          </article>
+          <!-- Project Items Grid: images and small descriptor cells with text -->
+          <div class="gallery-tblock-grid" id="project-gallery">
+            
+            <!-- Card 1: Facility Modeling -->
+            <article class="gallery-card" data-category="facility">
+              <button type="button" class="gallery-card-trigger" aria-haspopup="dialog" aria-label="Expand project: Plant Layout &amp; Workflow Modeling">
+                <div class="gallery-img-box">
+                  <img class="gallery-img" src="assets/photos/IMG_5509.jpeg" alt="Scale 3D printed miniature CNC machines on blueprint grid with shop floor layout" loading="lazy">
+                  <span class="gallery-zoom-hint" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg>
+                    <span>EXPAND</span>
+                  </span>
+                </div>
+                <div class="gallery-desc-cell">
+                  <small class="gallery-cat">FACILITY &bull; MODELING</small>
+                  <h3 class="gallery-title">Plant Layout &amp; Workflow Modeling</h3>
+                  <p class="gallery-tag">Facility &amp; Capacity Analysis</p>
+                </div>
+              </button>
+            </article>
 
-          <!-- Card 4: Bronze Plate -->
-          <article class="gallery-card" data-category="cnc">
-            <img class="gallery-img" src="assets/photos/IMG_5954.jpeg" alt="Precision milled bronze plate with dowel pin and countersunk holes" loading="lazy">
-            <div class="gallery-overlay">
-              <h2 class="gallery-title">Precision Bronze Tooling Plate</h2>
-              <p class="gallery-tag">Close-Tolerance CNC Milling</p>
-            </div>
-          </article>
+            <!-- Card 2: SolidWorks CAD -->
+            <article class="gallery-card" data-category="cad">
+              <button type="button" class="gallery-card-trigger" aria-haspopup="dialog" aria-label="Expand project: SolidWorks Manifold CAD Assembly">
+                <div class="gallery-img-box">
+                  <img class="gallery-img" src="assets/photos/IMG_5659.jpeg" alt="SolidWorks CAD 3D model of custom intake manifold assembly" loading="lazy">
+                  <span class="gallery-zoom-hint" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg>
+                    <span>EXPAND</span>
+                  </span>
+                </div>
+                <div class="gallery-desc-cell">
+                  <small class="gallery-cat">CAD &bull; CAMWORKS</small>
+                  <h3 class="gallery-title">SolidWorks Manifold CAD Assembly</h3>
+                  <p class="gallery-tag">CAMWorks &amp; Parametric Design</p>
+                </div>
+              </button>
+            </article>
 
-          <!-- Card 5: ASTM D3359 Adhesion Testing -->
-          <article class="gallery-card" data-category="quality">
-            <img class="gallery-img" src="assets/photos/IMG_5963.jpeg" alt="ASTM D3359 Method A X-cut coating adhesion test coupon rated 5A with Elcometer tape" loading="lazy">
-            <div class="gallery-overlay">
-              <h2 class="gallery-title">ASTM D3359 Coating Adhesion Testing</h2>
-              <p class="gallery-tag">Quality Control &amp; Surface QA</p>
-            </div>
-          </article>
+            <!-- Card 3: Billet Intake Manifold -->
+            <article class="gallery-card" data-category="cnc">
+              <button type="button" class="gallery-card-trigger" aria-haspopup="dialog" aria-label="Expand project: Billet Aluminum Intake Manifold">
+                <div class="gallery-img-box">
+                  <img class="gallery-img" src="assets/photos/IMG_5998.jpeg" alt="TIG welded aluminum custom intake manifold with CNC machined runners" loading="lazy">
+                  <span class="gallery-zoom-hint" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg>
+                    <span>EXPAND</span>
+                  </span>
+                </div>
+                <div class="gallery-desc-cell">
+                  <small class="gallery-cat">CNC &bull; 5-AXIS</small>
+                  <h3 class="gallery-title">Billet Aluminum Intake Manifold</h3>
+                  <p class="gallery-tag">5-Axis CNC &amp; TIG Fabrication</p>
+                </div>
+              </button>
+            </article>
 
-          <!-- Card 6: 5S Drawer -->
-          <article class="gallery-card" data-category="lean">
-            <img class="gallery-img" src="assets/photos/IMG_5042.jpeg" alt="Shadow-foamed 5S tool drawer with organized ER collets, sockets, and calipers" loading="lazy">
-            <div class="gallery-overlay">
-              <h2 class="gallery-title">5S Collet &amp; Tooling System</h2>
-              <p class="gallery-tag">Workstation Optimization</p>
-            </div>
-          </article>
+            <!-- Card 4: Bronze Plate -->
+            <article class="gallery-card" data-category="cnc">
+              <button type="button" class="gallery-card-trigger" aria-haspopup="dialog" aria-label="Expand project: Precision Bronze Tooling Plate">
+                <div class="gallery-img-box">
+                  <img class="gallery-img" src="assets/photos/IMG_5954.jpeg" alt="Precision milled bronze plate with dowel pin and countersunk holes" loading="lazy">
+                  <span class="gallery-zoom-hint" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg>
+                    <span>EXPAND</span>
+                  </span>
+                </div>
+                <div class="gallery-desc-cell">
+                  <small class="gallery-cat">CNC &bull; MILLING</small>
+                  <h3 class="gallery-title">Precision Bronze Tooling Plate</h3>
+                  <p class="gallery-tag">Close-Tolerance CNC Milling</p>
+                </div>
+              </button>
+            </article>
 
-          <!-- Card 7: Press Brake Brackets -->
-          <article class="gallery-card" data-category="cnc">
-            <img class="gallery-img" src="assets/photos/IMG_6252.jpeg" alt="Formed sheet metal channel brackets with punched mounting slots" loading="lazy">
-            <div class="gallery-overlay">
-              <h2 class="gallery-title">Formed Channel Mounting Brackets</h2>
-              <p class="gallery-tag">Press Brake &amp; Sheet Metal</p>
-            </div>
-          </article>
+            <!-- Card 5: ASTM D3359 Adhesion Testing -->
+            <article class="gallery-card" data-category="quality">
+              <button type="button" class="gallery-card-trigger" aria-haspopup="dialog" aria-label="Expand project: ASTM D3359 Coating Adhesion Testing">
+                <div class="gallery-img-box">
+                  <img class="gallery-img" src="assets/photos/IMG_5963.jpeg" alt="ASTM D3359 Method A X-cut coating adhesion test coupon rated 5A with Elcometer tape" loading="lazy">
+                  <span class="gallery-zoom-hint" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg>
+                    <span>EXPAND</span>
+                  </span>
+                </div>
+                <div class="gallery-desc-cell">
+                  <small class="gallery-cat">QA &bull; ASTM D3359</small>
+                  <h3 class="gallery-title">ASTM D3359 Coating Adhesion Testing</h3>
+                  <p class="gallery-tag">Quality Control &amp; Surface QA</p>
+                </div>
+              </button>
+            </article>
 
-          <!-- Card 8: Laser cut shroud -->
-          <article class="gallery-card" data-category="cnc">
-            <img class="gallery-img" src="assets/photos/IMG_6396.jpeg" alt="Formed chassis shroud panels with precision finish on laser grid" loading="lazy">
-            <div class="gallery-overlay">
-              <h2 class="gallery-title">Chassis Shroud Fabrication</h2>
-              <p class="gallery-tag">Precision Forming &amp; Finishing</p>
-            </div>
-          </article>
+            <!-- Card 6: 5S Drawer -->
+            <article class="gallery-card" data-category="lean">
+              <button type="button" class="gallery-card-trigger" aria-haspopup="dialog" aria-label="Expand project: 5S Collet &amp; Tooling System">
+                <div class="gallery-img-box">
+                  <img class="gallery-img" src="assets/photos/IMG_5042.jpeg" alt="Shadow-foamed 5S tool drawer with organized ER collets, sockets, and calipers" loading="lazy">
+                  <span class="gallery-zoom-hint" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg>
+                    <span>EXPAND</span>
+                  </span>
+                </div>
+                <div class="gallery-desc-cell">
+                  <small class="gallery-cat">LEAN &bull; 5S TOOLING</small>
+                  <h3 class="gallery-title">5S Collet &amp; Tooling System</h3>
+                  <p class="gallery-tag">Workstation Optimization</p>
+                </div>
+              </button>
+            </article>
 
-          <!-- Card 9: Tooling cart -->
-          <article class="gallery-card" data-category="lean">
-            <img class="gallery-img" src="assets/photos/IMG_4997.jpeg" alt="Mobile CNC toolholder management rack with organized tool cones" loading="lazy">
-            <div class="gallery-overlay">
-              <h2 class="gallery-title">Mobile CNC Toolholder Management</h2>
-              <p class="gallery-tag">Shop Floor Logistics</p>
-            </div>
-          </article>
+            <!-- Card 7: Press Brake Brackets -->
+            <article class="gallery-card" data-category="cnc">
+              <button type="button" class="gallery-card-trigger" aria-haspopup="dialog" aria-label="Expand project: Formed Channel Mounting Brackets">
+                <div class="gallery-img-box">
+                  <img class="gallery-img" src="assets/photos/IMG_6252.jpeg" alt="Formed sheet metal channel brackets with punched mounting slots" loading="lazy">
+                  <span class="gallery-zoom-hint" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg>
+                    <span>EXPAND</span>
+                  </span>
+                </div>
+                <div class="gallery-desc-cell">
+                  <small class="gallery-cat">CNC &bull; PRESS BRAKE</small>
+                  <h3 class="gallery-title">Formed Channel Mounting Brackets</h3>
+                  <p class="gallery-tag">Press Brake &amp; Sheet Metal</p>
+                </div>
+              </button>
+            </article>
 
-          <!-- Card 10: Assembly bench -->
-          <article class="gallery-card" data-category="lean">
-            <img class="gallery-img" src="assets/photos/IMG_5297.jpeg" alt="Ergonomic industrial assembly workbench with task lighting and tool rails" loading="lazy">
-            <div class="gallery-overlay">
-              <h2 class="gallery-title">Ergonomic Assembly Workstation</h2>
-              <p class="gallery-tag">Lean Cell Design</p>
-            </div>
-          </article>
+            <!-- Card 8: Laser cut shroud -->
+            <article class="gallery-card" data-category="cnc">
+              <button type="button" class="gallery-card-trigger" aria-haspopup="dialog" aria-label="Expand project: Chassis Shroud Fabrication">
+                <div class="gallery-img-box">
+                  <img class="gallery-img" src="assets/photos/IMG_6396.jpeg" alt="Formed chassis shroud panels with precision finish on laser grid" loading="lazy">
+                  <span class="gallery-zoom-hint" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg>
+                    <span>EXPAND</span>
+                  </span>
+                </div>
+                <div class="gallery-desc-cell">
+                  <small class="gallery-cat">CNC &bull; FORMING</small>
+                  <h3 class="gallery-title">Chassis Shroud Fabrication</h3>
+                  <p class="gallery-tag">Precision Forming &amp; Finishing</p>
+                </div>
+              </button>
+            </article>
 
-          <!-- Card 11: Sheet metal bracket -->
-          <article class="gallery-card" data-category="cad">
-            <img class="gallery-img" src="assets/photos/IMG_5850.jpeg" alt="Custom formed structural bracket with durable satin black finish" loading="lazy">
-            <div class="gallery-overlay">
-              <h2 class="gallery-title">Custom Formed Structural Bracket</h2>
-              <p class="gallery-tag">Sheet Metal Prototyping</p>
-            </div>
-          </article>
+            <!-- Card 9: Tooling cart -->
+            <article class="gallery-card" data-category="lean">
+              <button type="button" class="gallery-card-trigger" aria-haspopup="dialog" aria-label="Expand project: Mobile CNC Toolholder Management">
+                <div class="gallery-img-box">
+                  <img class="gallery-img" src="assets/photos/IMG_4997.jpeg" alt="Mobile CNC toolholder management rack with organized tool cones" loading="lazy">
+                  <span class="gallery-zoom-hint" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg>
+                    <span>EXPAND</span>
+                  </span>
+                </div>
+                <div class="gallery-desc-cell">
+                  <small class="gallery-cat">LEAN &bull; TOOL MANAGEMENT</small>
+                  <h3 class="gallery-title">Mobile CNC Toolholder Management</h3>
+                  <p class="gallery-tag">Shop Floor Logistics</p>
+                </div>
+              </button>
+            </article>
 
-          <!-- Card 12: CNC setup -->
-          <article class="gallery-card" data-category="cnc">
-            <img class="gallery-img" src="assets/photos/IMG_5815.jpeg" alt="Multi-axis CNC fixturing and tooling setup on mill bed" loading="lazy">
-            <div class="gallery-overlay">
-              <h2 class="gallery-title">Multi-Axis CNC Fixturing Setup</h2>
-              <p class="gallery-tag">Process Planning &amp; Rigidity</p>
-            </div>
-          </article>
+            <!-- Card 10: Assembly bench -->
+            <article class="gallery-card" data-category="lean">
+              <button type="button" class="gallery-card-trigger" aria-haspopup="dialog" aria-label="Expand project: Ergonomic Assembly Workstation">
+                <div class="gallery-img-box">
+                  <img class="gallery-img" src="assets/photos/IMG_5297.jpeg" alt="Ergonomic industrial assembly workbench with task lighting and tool rails" loading="lazy">
+                  <span class="gallery-zoom-hint" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg>
+                    <span>EXPAND</span>
+                  </span>
+                </div>
+                <div class="gallery-desc-cell">
+                  <small class="gallery-cat">LEAN &bull; CELL DESIGN</small>
+                  <h3 class="gallery-title">Ergonomic Assembly Workstation</h3>
+                  <p class="gallery-tag">Lean Cell Design</p>
+                </div>
+              </button>
+            </article>
 
-          <!-- Card 13: Cross Hatch Test -->
-          <article class="gallery-card" data-category="quality">
-            <img class="gallery-img" src="assets/photos/IMG_5962.jpeg" alt="Cross hatch coating adhesion inspection coupon with Elcometer tape" loading="lazy">
-            <div class="gallery-overlay">
-              <h2 class="gallery-title">Cross-Hatch Adhesion Analysis</h2>
-              <p class="gallery-tag">Elcometer ASTM D3359 Testing</p>
-            </div>
-          </article>
+            <!-- Card 11: Sheet metal bracket -->
+            <article class="gallery-card" data-category="cad">
+              <button type="button" class="gallery-card-trigger" aria-haspopup="dialog" aria-label="Expand project: Custom Formed Structural Bracket">
+                <div class="gallery-img-box">
+                  <img class="gallery-img" src="assets/photos/IMG_5850.jpeg" alt="Custom formed structural bracket with durable satin black finish" loading="lazy">
+                  <span class="gallery-zoom-hint" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg>
+                    <span>EXPAND</span>
+                  </span>
+                </div>
+                <div class="gallery-desc-cell">
+                  <small class="gallery-cat">CAD &bull; PROTOTYPING</small>
+                  <h3 class="gallery-title">Custom Formed Structural Bracket</h3>
+                  <p class="gallery-tag">Sheet Metal Prototyping</p>
+                </div>
+              </button>
+            </article>
 
-          <!-- Card 14: Intake Runner Geometry -->
-          <article class="gallery-card" data-category="cnc">
-            <img class="gallery-img" src="assets/photos/IMG_6001.jpeg" alt="Detailed view of welded CNC intake runners with precision port alignment" loading="lazy">
-            <div class="gallery-overlay">
-              <h2 class="gallery-title">Multi-Port Intake Runner Geometry</h2>
-              <p class="gallery-tag">TIG Fabrication &amp; Porting</p>
-            </div>
-          </article>
+            <!-- Card 12: CNC setup -->
+            <article class="gallery-card" data-category="cnc">
+              <button type="button" class="gallery-card-trigger" aria-haspopup="dialog" aria-label="Expand project: Multi-Axis CNC Fixturing Setup">
+                <div class="gallery-img-box">
+                  <img class="gallery-img" src="assets/photos/IMG_5815.jpeg" alt="Multi-axis CNC fixturing and tooling setup on mill bed" loading="lazy">
+                  <span class="gallery-zoom-hint" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg>
+                    <span>EXPAND</span>
+                  </span>
+                </div>
+                <div class="gallery-desc-cell">
+                  <small class="gallery-cat">CNC &bull; FIXTURING</small>
+                  <h3 class="gallery-title">Multi-Axis CNC Fixturing Setup</h3>
+                  <p class="gallery-tag">Process Planning &amp; Rigidity</p>
+                </div>
+              </button>
+            </article>
 
-          <!-- Card 15: Blueprint Layout -->
-          <article class="gallery-card" data-category="facility">
-            <img class="gallery-img" src="assets/photos/IMG_5514.jpeg" alt="Machinery layout with material flow arrows on facility blueprint grid" loading="lazy">
-            <div class="gallery-overlay">
-              <h2 class="gallery-title">Cellular Manufacturing Floor Plan</h2>
-              <p class="gallery-tag">Scale Blueprint &amp; Flow Matrix</p>
-            </div>
-          </article>
+            <!-- Card 13: Cross Hatch Test -->
+            <article class="gallery-card" data-category="quality">
+              <button type="button" class="gallery-card-trigger" aria-haspopup="dialog" aria-label="Expand project: Cross-Hatch Adhesion Analysis">
+                <div class="gallery-img-box">
+                  <img class="gallery-img" src="assets/photos/IMG_5962.jpeg" alt="Cross hatch coating adhesion inspection coupon with Elcometer tape" loading="lazy">
+                  <span class="gallery-zoom-hint" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg>
+                    <span>EXPAND</span>
+                  </span>
+                </div>
+                <div class="gallery-desc-cell">
+                  <small class="gallery-cat">QA &bull; TESTING</small>
+                  <h3 class="gallery-title">Cross-Hatch Adhesion Analysis</h3>
+                  <p class="gallery-tag">Elcometer ASTM D3359 Testing</p>
+                </div>
+              </button>
+            </article>
 
+            <!-- Card 14: Intake Runner Geometry -->
+            <article class="gallery-card" data-category="cnc">
+              <button type="button" class="gallery-card-trigger" aria-haspopup="dialog" aria-label="Expand project: Multi-Port Intake Runner Geometry">
+                <div class="gallery-img-box">
+                  <img class="gallery-img" src="assets/photos/IMG_6001.jpeg" alt="Detailed view of welded CNC intake runners with precision port alignment" loading="lazy">
+                  <span class="gallery-zoom-hint" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg>
+                    <span>EXPAND</span>
+                  </span>
+                </div>
+                <div class="gallery-desc-cell">
+                  <small class="gallery-cat">CNC &bull; TIG WELDING</small>
+                  <h3 class="gallery-title">Multi-Port Intake Runner Geometry</h3>
+                  <p class="gallery-tag">TIG Fabrication &amp; Porting</p>
+                </div>
+              </button>
+            </article>
+
+            <!-- Card 15: Blueprint Layout -->
+            <article class="gallery-card" data-category="facility">
+              <button type="button" class="gallery-card-trigger" aria-haspopup="dialog" aria-label="Expand project: Cellular Manufacturing Floor Plan">
+                <div class="gallery-img-box">
+                  <img class="gallery-img" src="assets/photos/IMG_5514.jpeg" alt="Machinery layout with material flow arrows on facility blueprint grid" loading="lazy">
+                  <span class="gallery-zoom-hint" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg>
+                    <span>EXPAND</span>
+                  </span>
+                </div>
+                <div class="gallery-desc-cell">
+                  <small class="gallery-cat">FACILITY &bull; FLOW MATRIX</small>
+                  <h3 class="gallery-title">Cellular Manufacturing Floor Plan</h3>
+                  <p class="gallery-tag">Scale Blueprint &amp; Flow Matrix</p>
+                </div>
+              </button>
+            </article>
+
+          </div>
         </div>
       </div>
     </section>
@@ -262,5 +398,40 @@
       <p class="meta">Northern Illinois &amp; Southern Wisconsin &bull; Manufacturing &amp; Engineering Consulting</p>
     </div>
   </footer>
+
+  <!-- PROJECT IMAGE LIGHTBOX MODAL -->
+  <div id="gallery-lightbox" class="gallery-lightbox" role="dialog" aria-modal="true" aria-label="Project Image Viewer" aria-hidden="true" tabindex="-1">
+    <div class="lightbox-overlay" data-action="close"></div>
+    <div class="lightbox-container">
+      <div class="lightbox-bar">
+        <div class="lightbox-meta">
+          <span class="lightbox-count" id="lightbox-count">1 of 15</span>
+          <span class="lightbox-cat" id="lightbox-cat">CNC &bull; 5-AXIS</span>
+        </div>
+        <button type="button" class="lightbox-close-btn" data-action="close" aria-label="Close image viewer">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
+        </button>
+      </div>
+
+      <div class="lightbox-viewport">
+        <button type="button" class="lightbox-nav-btn prev" data-action="prev" aria-label="Previous image">
+          <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg>
+        </button>
+
+        <div class="lightbox-img-wrap">
+          <img id="lightbox-img" class="lightbox-img" src="assets/photos/IMG_5509.jpeg" alt="">
+        </div>
+
+        <button type="button" class="lightbox-nav-btn next" data-action="next" aria-label="Next image">
+          <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
+        </button>
+      </div>
+
+      <div class="lightbox-footer">
+        <h3 id="lightbox-title" class="lightbox-title">Plant Layout &amp; Workflow Modeling</h3>
+        <p id="lightbox-desc" class="lightbox-desc">Facility &amp; Capacity Analysis</p>
+      </div>
+    </div>
+  </div>
 </body>
 </html>
