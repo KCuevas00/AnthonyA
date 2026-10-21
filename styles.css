@@ -27,8 +27,8 @@ html {
 }
 body {
   margin: 0;
-  background: var(--bg);
-  color: var(--text);
+  background: var(--paper);
+  color: #131A22;
   font: 400 1.0625rem/1.65 var(--font);
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
@@ -523,7 +523,7 @@ p { margin: 0 0 1em; max-width: 62ch; color: var(--text-2); }
   border-bottom: 1px solid var(--line);
   overflow: hidden;
   aspect-ratio: 4 / 3;
-  background: #0B1118;
+  background: #E8EFF6;
   width: 100%;
 }
 
