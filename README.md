@@ -35,7 +35,7 @@ The project and gallery cards follow the **NG Solutions** card layout design pat
 |---|---|---|
 | `IMG_5509.jpeg` | Plant Layout & Workflow Modeling | FACILITY & CAPACITY ANALYSIS |
 | `IMG_5659.jpeg` | SolidWorks Manifold CAD Assembly | CAMWORKS & PARAMETRIC DESIGN |
-| `IMG_5998.jpeg` | Billet Aluminum Intake Manifold | 5-AXIS CNC & TIG FABRICATION |
+| `IMG_5998.jpeg` | Billet Aluminum Intake Manifold | PRECISION CNC & TIG FABRICATION |
 | `IMG_5954.jpeg` | Precision Bronze Tooling Plate | CLOSE-TOLERANCE CNC MILLING |
 | `IMG_5963.jpeg` | ASTM D3359 Coating Adhesion Testing | QUALITY CONTROL & SURFACE QA |
 | `IMG_5042.jpeg` | 5S Collet & Tooling System | WORKSTATION OPTIMIZATION |
@@ -44,4 +44,4 @@ The project and gallery cards follow the **NG Solutions** card layout design pat
 | `IMG_4997.jpeg` | Mobile CNC Toolholder Management | SHOP FLOOR LOGISTICS |
 | `IMG_5297.jpeg` | Ergonomic Assembly Workstation | LEAN CELL DESIGN |
 | `IMG_5850.jpeg` | Custom Formed Structural Bracket | SHEET METAL PROTOTYPING |
-| `IMG_5815.jpeg` | Multi-Axis CNC Fixturing Setup | PROCESS PLANNING & RIGIDITY |
+| `IMG_5815.jpeg` | Precision CNC Fixturing Setup | PROCESS PLANNING & RIGIDITY |
