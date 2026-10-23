@@ -1141,6 +1141,19 @@ body.lightbox-open {
     display: block;
     fill: currentColor;
   }
+
+  /* About page hero: place image higher up on mobile screens */
+  .about-hero {
+    padding-top: clamp(2rem, 5vw, 3rem);
+  }
+  .about-hero .split {
+    gap: 1.75rem;
+  }
+  .about-hero .hero-photo {
+    order: -1;
+    margin: 0 auto 0.5rem;
+    max-width: 260px;
+  }
 }
 
 /* Mobile drawer backdrop */
