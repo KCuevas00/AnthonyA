@@ -904,6 +904,18 @@ body.lightbox-open {
   .site-header {
     z-index: 500;
   }
+  body.nav-open .site-header {
+    z-index: 1200;
+    background: transparent;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    border-bottom-color: transparent;
+    pointer-events: none;
+  }
+  body.nav-open .site-nav,
+  body.nav-open .nav-toggle {
+    pointer-events: auto;
+  }
   body.nav-open {
     overflow: hidden;
     touch-action: none;
@@ -1134,15 +1146,16 @@ body.lightbox-open {
   position: fixed;
   inset: 0;
   background: rgba(8, 12, 17, 0.75);
-  backdrop-filter: blur(4px);
-  z-index: 1150;
+  z-index: 1000;
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.3s ease, visibility 0.3s ease;
+  pointer-events: none;
 }
 .nav-backdrop.active {
   opacity: 1;
   visibility: visible;
+  pointer-events: auto;
 }
 body.nav-open {
   overflow: hidden;
