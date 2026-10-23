@@ -878,6 +878,216 @@ body.lightbox-open {
 .form-status.ok { color: #6fcf97; }
 .form-status.err { color: #ff8a80; }
 
+/* Contact Page Layout, Socials & Region Map */
+.contact-title {
+  font-family: var(--disp);
+  font-size: clamp(2.4rem, 5.5vw, 3.8rem);
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  line-height: 1.05;
+  color: var(--text);
+  margin: 0 0 1.35rem;
+}
+
+.contact-card {
+  background: #FFFFFF;
+  border: 1px solid var(--line);
+  padding: 1.25rem 1.4rem;
+  margin-bottom: 1.35rem;
+  box-shadow: 0 2px 6px rgba(19, 26, 34, 0.04);
+}
+
+.contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.85rem;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid rgba(19, 26, 34, 0.08);
+}
+.contact-item:first-child {
+  padding-top: 0;
+}
+.contact-item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.contact-item-icon {
+  width: 34px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(27, 111, 168, 0.08);
+  border: 1px solid rgba(27, 111, 168, 0.22);
+  border-radius: 4px;
+  color: var(--accent);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.contact-item-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  min-width: 0;
+}
+
+.contact-item-label {
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--accent);
+}
+
+.contact-item-val {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.contact-email-val {
+  font-family: var(--mono);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--accent);
+  text-decoration: none;
+  word-break: break-all;
+  transition: color 0.2s ease;
+}
+.contact-email-val:hover {
+  color: var(--accent-hover);
+  text-decoration: underline;
+}
+
+.contact-item-sub {
+  font-size: 0.78rem;
+  color: var(--text-2);
+  line-height: 1.4;
+  margin-top: 0.1rem;
+}
+
+.contact-socials-block {
+  margin-bottom: 1.5rem;
+}
+
+.contact-section-label {
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-2);
+  display: block;
+  margin-bottom: 0.6rem;
+}
+
+.contact-socials-row {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  flex-wrap: wrap;
+}
+
+.contact-social-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.55rem 0.95rem;
+  background: #FFFFFF;
+  border: 1px solid var(--line);
+  color: var(--text);
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease, transform 0.15s ease;
+}
+.contact-social-btn svg {
+  color: var(--accent);
+  flex-shrink: 0;
+  transition: color 0.2s ease;
+}
+.contact-social-btn:hover {
+  background: #E8EFF6;
+  border-color: var(--accent);
+  color: var(--accent);
+  transform: translateY(-1px);
+}
+.contact-social-btn:hover svg {
+  color: var(--accent-hover);
+}
+
+/* Technical Region Map Card */
+.contact-map-card {
+  background: #FFFFFF;
+  border: 1px solid var(--line);
+  border-radius: 2px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(19, 26, 34, 0.05);
+}
+
+.contact-map-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.65rem 0.9rem;
+  background: #E8EFF6;
+  border-bottom: 1px solid var(--line);
+  font-family: var(--mono);
+  font-size: 0.68rem;
+}
+.contact-map-tag {
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.contact-map-coords {
+  color: var(--text-2);
+  font-size: 0.65rem;
+}
+
+.contact-map-graphic {
+  background: var(--paper);
+  padding: 0.35rem;
+  display: block;
+}
+.contact-map-graphic svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.contact-map-footer {
+  padding: 0.6rem 0.9rem;
+  background: #F8FAFC;
+  border-top: 1px solid var(--line);
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  color: var(--text-2);
+  line-height: 1.4;
+}
+
+.contact-form-card {
+  background: #FFFFFF;
+  border: 1px solid var(--line);
+  padding: 2rem;
+  box-shadow: 0 4px 16px rgba(19, 26, 34, 0.04);
+}
+
+@media (min-width: 860px) {
+  .contact-split {
+    grid-template-columns: 1.15fr 1fr;
+    align-items: start;
+    gap: 3.5rem;
+  }
+}
+
 /* Footer */
 .site-footer { border-top: 1px solid var(--line); padding: 2rem 0; }
 .footer-inner { display: flex; justify-content: space-between; flex-wrap: wrap; gap: .5rem 2rem; }
