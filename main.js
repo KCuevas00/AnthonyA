@@ -70,16 +70,18 @@
     window.addEventListener('scroll', onScroll, { passive: true });
   }
 
-  // Mini-bar interaction: clicking the active item for current page smoothly scrolls to top
-  document.querySelectorAll('.mini-item').forEach(function (btn) {
+  // When scrolled down into minimalist line mode, clicking active page link scrolls smoothly to top
+  document.querySelectorAll('.site-nav ul a[aria-current="page"]').forEach(function (btn) {
     btn.addEventListener('click', function (e) {
-      var currentPath = window.location.pathname.split('/').pop() || 'index.html';
-      if (currentPath === '') currentPath = 'index.html';
-      var targetPath = (btn.getAttribute('href') || '').split('/').pop();
-      if (targetPath === '') targetPath = 'index.html';
-      if (currentPath === targetPath) {
-        e.preventDefault();
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+      if (header && header.classList.contains('scrolled')) {
+        var currentPath = window.location.pathname.split('/').pop() || 'index.html';
+        if (currentPath === '') currentPath = 'index.html';
+        var targetPath = (btn.getAttribute('href') || '').split('/').pop();
+        if (targetPath === '') targetPath = 'index.html';
+        if (currentPath === targetPath) {
+          e.preventDefault();
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
       }
     });
   });
