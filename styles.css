@@ -202,7 +202,7 @@ p { margin: 0 0 1em; max-width: 62ch; color: var(--text-2); }
   color: var(--text-2);
   text-decoration: none;
   font-family: var(--disp);
-  font-size: 1.25rem;
+  font-size: 1.35rem;
   font-weight: 700;
   letter-spacing: 0.05em;
   text-transform: uppercase;
@@ -1174,7 +1174,7 @@ body.lightbox-open {
   }
   .site-nav-label {
     font-family: var(--mono);
-    font-size: 0.68rem;
+    font-size: 0.75rem;
     font-weight: 700;
     letter-spacing: 0.14em;
     text-transform: uppercase;
@@ -1200,7 +1200,7 @@ body.lightbox-open {
   }
   .site-nav ul a:not(.btn) {
     font-family: var(--disp);
-    font-size: 1.65rem;
+    font-size: clamp(1.85rem, 5.5vw, 2.15rem);
     font-weight: 700;
     letter-spacing: 0.04em;
     text-transform: uppercase;
@@ -1208,7 +1208,7 @@ body.lightbox-open {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0.65rem 0.25rem 0.65rem 0;
+    padding: 0.75rem 0.25rem 0.75rem 0;
     border-bottom: none;
     max-width: 100%;
     box-sizing: border-box;
@@ -1246,79 +1246,19 @@ body.lightbox-open {
   .site-nav-footer {
     display: block;
     margin-top: auto;
-    padding-top: 1.25rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 1.5rem;
     max-width: 100%;
     box-sizing: border-box;
   }
-  .site-nav-footer-label {
-    font-family: var(--mono);
-    font-size: 0.65rem;
-    font-weight: 700;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--text-2);
-    opacity: 0.6;
-    margin-bottom: 0.35rem;
-    display: block;
-  }
-  .site-nav-footer p {
-    font-size: 0.78rem;
-    color: var(--text-2);
-    margin: 0 0 0.55rem;
-    line-height: 1.35;
-    word-break: break-word;
-    max-width: 100%;
-  }
-  .site-nav-footer .nav-email {
-    font-family: var(--mono) !important;
-    font-size: 0.78rem !important;
-    font-weight: 500;
-    letter-spacing: 0.01em;
-    text-transform: lowercase !important;
-    color: var(--warm);
-    text-decoration: none;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.55rem;
-    max-width: 100%;
-    box-sizing: border-box;
-    padding: 0.45rem 0.75rem;
-    background: rgba(56, 189, 248, 0.08);
-    border: 1px solid rgba(56, 189, 248, 0.28);
-    border-radius: 4px;
-    transition: color 0.2s ease, border-color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
-    word-break: break-all;
-    overflow-wrap: anywhere;
-  }
-  .site-nav-footer .nav-email:hover,
-  .site-nav-footer .nav-email:focus-visible {
-    color: #FFFFFF;
-    border-color: var(--warm);
-    background: rgba(56, 189, 248, 0.2);
-    box-shadow: 0 0 10px rgba(56, 189, 248, 0.3);
-  }
-  .site-nav-footer .nav-email svg {
-    flex-shrink: 0;
-    width: 14px;
-    height: 14px;
-    stroke: var(--warm);
-    transition: stroke 0.2s ease;
-  }
-  .site-nav-footer .nav-email:hover svg {
-    stroke: #FFFFFF;
-  }
-  .site-nav-footer .nav-email span {
-    line-height: 1.2;
-    text-transform: lowercase;
+  .site-nav-footer .site-nav-header {
+    margin-bottom: 0.5rem;
   }
   .site-nav-socials {
     display: flex;
     align-items: center;
+    justify-content: flex-end;
     gap: 0.75rem;
-    margin-top: 0.85rem;
-    padding-top: 0.75rem;
-    border-top: 1px dashed rgba(255, 255, 255, 0.1);
+    margin-top: 0.65rem;
     max-width: 100%;
     box-sizing: border-box;
   }
