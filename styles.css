@@ -199,14 +199,41 @@ p { margin: 0 0 1em; max-width: 62ch; color: var(--text-2); }
 .cta-row { display: flex; gap: .85rem; flex-wrap: wrap; margin-top: 2rem; }
 .text-link { font-weight: 600; }
 
-/* Header */
+/* Header — Glassmorphic Dynamic Navbar */
 .site-header {
-  position: sticky; top: 0; z-index: 50; background: rgba(19, 26, 34, .92);
-  backdrop-filter: blur(8px); border-bottom: 1px solid transparent; transition: border-color .2s;
+  position: sticky;
+  top: 0;
+  z-index: 500;
+  background: transparent;
+  backdrop-filter: blur(0px);
+  -webkit-backdrop-filter: blur(0px);
+  border-bottom: 1px solid transparent;
+  box-shadow: 0 0 0 rgba(0, 0, 0, 0);
   padding-top: env(safe-area-inset-top, 0px);
+  transition:
+    background-color 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+    backdrop-filter 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+    -webkit-backdrop-filter 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
-.site-header.scrolled { border-bottom-color: var(--line); }
-.header-inner { display: flex; align-items: center; justify-content: space-between; min-height: 4rem; }
+.site-header.scrolled {
+  background: rgba(15, 22, 31, 0.82);
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  border-bottom-color: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.45);
+}
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 4.75rem;
+  transition: min-height 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.site-header.scrolled .header-inner {
+  min-height: 3.5rem;
+}
 .brand {
   color: var(--text);
   font-family: var(--disp);
@@ -218,6 +245,10 @@ p { margin: 0 0 1em; max-width: 62ch; color: var(--text-2); }
   line-height: 1;
   display: inline-flex;
   align-items: center;
+  transition: font-size 0.35s cubic-bezier(0.16, 1, 0.3, 1), color 0.2s ease;
+}
+.site-header.scrolled .brand {
+  font-size: 1.35rem;
 }
 .site-nav ul { display: flex; align-items: center; gap: 1.6rem; list-style: none; margin: 0; padding: 0; }
 .site-nav ul a:not(.btn) {
@@ -1135,6 +1166,12 @@ body.lightbox-open {
   }
   .site-header {
     z-index: 500;
+  }
+  .header-inner {
+    min-height: 4.25rem;
+  }
+  .site-header.scrolled .header-inner {
+    min-height: 3.5rem;
   }
   body.nav-open .site-header {
     z-index: 1200;
