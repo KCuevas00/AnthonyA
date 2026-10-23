@@ -24,7 +24,15 @@
       toggle.setAttribute('aria-label', open ? 'Close navigation menu' : 'Toggle navigation menu');
       backdrop.classList.toggle('active', open);
       document.body.classList.toggle('nav-open', open);
+      document.documentElement.classList.toggle('nav-open', open);
     };
+
+    // Lock background scroll on mobile touch while drawer is open
+    document.addEventListener('touchmove', function (e) {
+      if (document.body.classList.contains('nav-open') && !e.target.closest('#site-nav')) {
+        e.preventDefault();
+      }
+    }, { passive: false });
 
     toggle.addEventListener('click', function () {
       setOpen(!nav.classList.contains('open'));

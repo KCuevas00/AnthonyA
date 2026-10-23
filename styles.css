@@ -916,9 +916,11 @@ body.lightbox-open {
   body.nav-open .nav-toggle {
     pointer-events: auto;
   }
+  html.nav-open,
   body.nav-open {
-    overflow: hidden;
-    touch-action: none;
+    overflow: hidden !important;
+    overscroll-behavior: none !important;
+    touch-action: none !important;
   }
   .site-nav {
     position: fixed;
@@ -944,7 +946,7 @@ body.lightbox-open {
     overflow-x: hidden;
     overscroll-behavior-y: contain;
     overscroll-behavior-x: none;
-    touch-action: pan-y;
+    touch-action: pan-y !important;
     -webkit-overflow-scrolling: touch;
   }
   .site-nav.open {
@@ -1157,8 +1159,10 @@ body.lightbox-open {
   visibility: visible;
   pointer-events: auto;
 }
+html.nav-open,
 body.nav-open {
-  overflow: hidden;
+  overflow: hidden !important;
+  overscroll-behavior: none !important;
 }
 
 /* Hero entrance: the one orchestrated moment */
