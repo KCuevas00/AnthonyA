@@ -48,7 +48,19 @@ p { margin: 0 0 1em; max-width: 62ch; color: var(--text-2); }
 
 .wrap { width: min(100% - 2.5rem, var(--wrap)); margin-inline: auto; }
 .section { padding: clamp(3.5rem, 8vw, 6.5rem) 0; }
-.section-alt { background: var(--bg-alt); }
+.section-alt {
+  background: var(--bg-alt);
+  position: relative;
+}
+.section-alt::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url('assets/floating-cogs.svg') repeat;
+  background-size: 180px 180px;
+  opacity: 0.025;
+  pointer-events: none;
+}
 .split { display: grid; gap: 3rem; grid-template-columns: 1fr; }
 .grid { display: grid; gap: 1.25rem; }
 .grid-3 { grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
@@ -154,6 +166,16 @@ p { margin: 0 0 1em; max-width: 62ch; color: var(--text-2); }
   padding: .6rem 0;
   border-bottom: 1px solid var(--line);
   background: transparent;
+  position: relative;
+}
+.main-light .strip::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url('assets/Retro Line Patterns.svg') repeat;
+  background-size: 200px 180px;
+  opacity: 0.018;
+  pointer-events: none;
 }
 .main-light .strip .wrap {
   display: flex;
