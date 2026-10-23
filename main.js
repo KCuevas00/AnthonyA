@@ -63,7 +63,7 @@
   }
 
   // Highlight current section in nav
-  var links = document.querySelectorAll('.site-nav a[href^="#"]:not(.btn)');
+  var links = document.querySelectorAll('.site-nav ul a[href^="#"]:not(.btn)');
   if ('IntersectionObserver' in window && links.length) {
     var map = {};
     links.forEach(function (a) { map[a.getAttribute('href').slice(1)] = a; });

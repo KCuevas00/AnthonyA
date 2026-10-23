@@ -181,6 +181,7 @@ p { margin: 0 0 1em; max-width: 62ch; color: var(--text-2); }
 .site-header {
   position: sticky; top: 0; z-index: 50; background: rgba(19, 26, 34, .92);
   backdrop-filter: blur(8px); border-bottom: 1px solid transparent; transition: border-color .2s;
+  padding-top: env(safe-area-inset-top, 0px);
 }
 .site-header.scrolled { border-bottom-color: var(--line); }
 .header-inner { display: flex; align-items: center; justify-content: space-between; min-height: 4rem; }
@@ -197,7 +198,7 @@ p { margin: 0 0 1em; max-width: 62ch; color: var(--text-2); }
   align-items: center;
 }
 .site-nav ul { display: flex; align-items: center; gap: 1.6rem; list-style: none; margin: 0; padding: 0; }
-.site-nav a:not(.btn) {
+.site-nav ul a:not(.btn) {
   color: var(--text-2);
   text-decoration: none;
   font-family: var(--disp);
@@ -209,8 +210,8 @@ p { margin: 0 0 1em; max-width: 62ch; color: var(--text-2); }
   border-bottom: 2px solid transparent;
   transition: color .2s, border-color .2s;
 }
-.site-nav a:not(.btn):hover { color: var(--text); border-bottom-color: var(--warm); }
-.site-nav a[aria-current="page"] { color: var(--text); border-bottom-color: var(--accent); }
+.site-nav ul a:not(.btn):hover { color: var(--text); border-bottom-color: var(--warm); }
+.site-nav ul a[aria-current="page"] { color: var(--text); border-bottom-color: var(--accent); }
 /* Modern 3-line Hamburger / Morphing X Button */
 .nav-toggle {
   display: none;
@@ -893,11 +894,15 @@ body.lightbox-open {
   .nav-toggle {
     display: inline-flex;
   }
+  .nav-toggle.open,
+  .nav-toggle[aria-expanded="true"] {
+    position: fixed;
+    top: calc(env(safe-area-inset-top, 0px) + 0.85rem);
+    right: 1.25rem;
+    z-index: 1300;
+  }
   .site-header {
     z-index: 500;
-  }
-  body.nav-open .site-header {
-    z-index: 1100;
   }
   body.nav-open {
     overflow: hidden;
@@ -915,11 +920,11 @@ body.lightbox-open {
     background: #111720;
     border-left: 1px solid var(--line);
     box-shadow: -14px 0 40px rgba(0, 0, 0, 0.85);
-    padding: 4.6rem 1.4rem 1.8rem;
+    padding: calc(env(safe-area-inset-top, 0px) + 4.75rem) 1.4rem calc(env(safe-area-inset-bottom, 0px) + 1.8rem);
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    z-index: 1000;
+    justify-content: flex-start;
+    z-index: 1200;
     transform: translateX(105%);
     transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.35s;
     visibility: hidden;
@@ -935,20 +940,22 @@ body.lightbox-open {
     visibility: visible;
   }
   .site-nav-header {
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    padding-bottom: 0.5rem;
+    padding-bottom: 0.55rem;
     margin-bottom: 0.75rem;
     max-width: 100%;
   }
   .site-nav-label {
     font-family: var(--mono);
-    font-size: 0.7rem;
+    font-size: 0.68rem;
     font-weight: 700;
     letter-spacing: 0.14em;
     text-transform: uppercase;
-    color: var(--text-2);
-    opacity: 0.65;
+    color: var(--warm);
+    opacity: 0.85;
   }
   .site-nav ul {
     flex-direction: column;
@@ -964,36 +971,39 @@ body.lightbox-open {
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     max-width: 100%;
   }
-  .site-nav a:not(.btn) {
+  .site-nav li:last-child {
+    border-bottom: none;
+  }
+  .site-nav ul a:not(.btn) {
     font-family: var(--disp);
-    font-size: 1.85rem;
+    font-size: 1.65rem;
     font-weight: 700;
-    letter-spacing: 0.03em;
+    letter-spacing: 0.04em;
     text-transform: uppercase;
     color: var(--warm);
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0.75rem 0.25rem 0.75rem 0;
+    padding: 0.65rem 0.25rem 0.65rem 0;
     border-bottom: none;
     max-width: 100%;
     box-sizing: border-box;
     transition: color 0.18s ease, padding-left 0.18s ease;
   }
-  .site-nav a:not(.btn):hover,
-  .site-nav a[aria-current="page"] {
+  .site-nav ul a:not(.btn):hover,
+  .site-nav ul a[aria-current="page"] {
     color: #FFFFFF;
     padding-left: 0.5rem;
   }
   .site-nav .btn {
     display: block;
-    margin-top: 1.25rem;
+    margin-top: 1.15rem;
     text-align: center;
     width: 100%;
     max-width: 100%;
     box-sizing: border-box;
-    padding: 0.85rem 1.4rem;
-    font-size: 1.15rem;
+    padding: 0.75rem 1.25rem;
+    font-size: 1.1rem;
     font-family: var(--disp);
     font-weight: 700;
     letter-spacing: 0.04em;
@@ -1001,6 +1011,8 @@ body.lightbox-open {
     background: var(--warm);
     border-color: var(--warm);
     color: #0B1118;
+    border-radius: 4px;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
   }
   .site-nav .btn:hover {
     background: var(--warm-hover);
@@ -1009,8 +1021,8 @@ body.lightbox-open {
   }
   .site-nav-footer {
     display: block;
-    margin-top: 1.6rem;
-    padding-top: 1.15rem;
+    margin-top: auto;
+    padding-top: 1.25rem;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
     max-width: 100%;
     box-sizing: border-box;
@@ -1029,43 +1041,57 @@ body.lightbox-open {
   .site-nav-footer p {
     font-size: 0.78rem;
     color: var(--text-2);
-    margin: 0 0 0.45rem;
+    margin: 0 0 0.55rem;
     line-height: 1.35;
     word-break: break-word;
     max-width: 100%;
   }
   .site-nav-footer .nav-email {
-    font-family: var(--mono);
-    font-size: 0.72rem;
+    font-family: var(--mono) !important;
+    font-size: 0.78rem !important;
+    font-weight: 500;
     letter-spacing: 0.01em;
-    color: var(--accent-hover);
+    text-transform: lowercase !important;
+    color: var(--warm);
     text-decoration: none;
     display: inline-flex;
     align-items: center;
-    gap: 0.45rem;
-    word-break: break-all;
-    overflow-wrap: anywhere;
+    gap: 0.55rem;
     max-width: 100%;
     box-sizing: border-box;
-    padding: 0.32rem 0.6rem;
-    background: rgba(45, 156, 219, 0.08);
-    border: 1px solid rgba(45, 156, 219, 0.22);
+    padding: 0.45rem 0.75rem;
+    background: rgba(56, 189, 248, 0.08);
+    border: 1px solid rgba(56, 189, 248, 0.28);
     border-radius: 4px;
-    transition: color 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
+    transition: color 0.2s ease, border-color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+    word-break: break-all;
+    overflow-wrap: anywhere;
   }
   .site-nav-footer .nav-email:hover,
   .site-nav-footer .nav-email:focus-visible {
-    color: var(--warm);
+    color: #FFFFFF;
     border-color: var(--warm);
-    background: rgba(56, 189, 248, 0.12);
+    background: rgba(56, 189, 248, 0.2);
+    box-shadow: 0 0 10px rgba(56, 189, 248, 0.3);
   }
   .site-nav-footer .nav-email svg {
     flex-shrink: 0;
+    width: 14px;
+    height: 14px;
+    stroke: var(--warm);
+    transition: stroke 0.2s ease;
+  }
+  .site-nav-footer .nav-email:hover svg {
+    stroke: #FFFFFF;
+  }
+  .site-nav-footer .nav-email span {
+    line-height: 1.2;
+    text-transform: lowercase;
   }
   .site-nav-socials {
     display: flex;
     align-items: center;
-    gap: 0.6rem;
+    gap: 0.75rem;
     margin-top: 0.85rem;
     padding-top: 0.75rem;
     border-top: 1px dashed rgba(255, 255, 255, 0.1);
@@ -1076,27 +1102,30 @@ body.lightbox-open {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 36px;
-    height: 36px;
+    width: 38px;
+    height: 38px;
     border-radius: 6px;
-    background: rgba(45, 156, 219, 0.08);
-    border: 1px solid rgba(45, 156, 219, 0.25);
-    color: var(--text-2);
+    background: rgba(56, 189, 248, 0.08);
+    border: 1px solid rgba(56, 189, 248, 0.25);
+    color: var(--warm);
     text-decoration: none;
-    transition: color 0.2s ease, border-color 0.2s ease, background-color 0.2s ease, transform 0.2s ease;
+    transition: color 0.2s ease, border-color 0.2s ease, background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
     flex-shrink: 0;
+    padding: 0;
   }
   .site-nav-socials .social-icon-btn:hover,
   .site-nav-socials .social-icon-btn:focus-visible {
     color: #FFFFFF;
-    background: rgba(56, 189, 248, 0.18);
+    background: rgba(56, 189, 248, 0.22);
     border-color: var(--warm);
+    box-shadow: 0 4px 12px rgba(56, 189, 248, 0.35);
     transform: translateY(-2px);
   }
   .site-nav-socials .social-icon-btn svg {
-    width: 16px;
-    height: 16px;
+    width: 18px;
+    height: 18px;
     display: block;
+    fill: currentColor;
   }
 }
 
@@ -1104,9 +1133,9 @@ body.lightbox-open {
 .nav-backdrop {
   position: fixed;
   inset: 0;
-  background: rgba(8, 12, 17, 0.7);
+  background: rgba(8, 12, 17, 0.75);
   backdrop-filter: blur(4px);
-  z-index: 998;
+  z-index: 1150;
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.3s ease, visibility 0.3s ease;
