@@ -60,31 +60,15 @@
     });
   }
 
-  // Header minimizes to minimalist line bar on scroll; acts normally at top
+  // Header border once the page scrolls
   var header = document.querySelector('.site-header');
   if (header) {
     var onScroll = function () {
-      header.classList.toggle('scrolled', window.scrollY > 15);
+      header.classList.toggle('scrolled', window.scrollY > 8);
     };
     onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
   }
-
-  // When scrolled down into minimalist line mode, clicking active page link scrolls smoothly to top
-  document.querySelectorAll('.site-nav ul a[aria-current="page"]').forEach(function (btn) {
-    btn.addEventListener('click', function (e) {
-      if (header && header.classList.contains('scrolled')) {
-        var currentPath = window.location.pathname.split('/').pop() || 'index.html';
-        if (currentPath === '') currentPath = 'index.html';
-        var targetPath = (btn.getAttribute('href') || '').split('/').pop();
-        if (targetPath === '') targetPath = 'index.html';
-        if (currentPath === targetPath) {
-          e.preventDefault();
-          window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-      }
-    });
-  });
 
   // Highlight current section in nav
   var links = document.querySelectorAll('.site-nav ul a[href^="#"]:not(.btn)');

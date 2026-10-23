@@ -201,28 +201,12 @@ p { margin: 0 0 1em; max-width: 62ch; color: var(--text-2); }
 
 /* Header */
 .site-header {
-  position: sticky;
-  top: 0;
-  z-index: 500;
-  background: rgba(19, 26, 34, 0.94);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border-bottom: 1px solid transparent;
+  position: sticky; top: 0; z-index: 50; background: rgba(19, 26, 34, .92);
+  backdrop-filter: blur(8px); border-bottom: 1px solid transparent; transition: border-color .2s;
   padding-top: env(safe-area-inset-top, 0px);
-  transition:
-    min-height 0.3s cubic-bezier(0.16, 1, 0.3, 1),
-    background-color 0.3s ease,
-    border-color 0.3s ease,
-    box-shadow 0.3s ease;
 }
-.header-inner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  min-height: 4rem;
-  position: relative;
-  transition: min-height 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-}
+.site-header.scrolled { border-bottom-color: var(--line); }
+.header-inner { display: flex; align-items: center; justify-content: space-between; min-height: 4rem; }
 .brand {
   color: var(--text);
   font-family: var(--disp);
@@ -234,184 +218,22 @@ p { margin: 0 0 1em; max-width: 62ch; color: var(--text-2); }
   line-height: 1;
   display: inline-flex;
   align-items: center;
-  white-space: nowrap;
-  transition: opacity 0.25s ease, transform 0.25s ease;
 }
-
-/* Primary Desktop Navigation */
-.site-nav {
-  display: flex;
-  align-items: center;
-  transition: opacity 0.25s ease;
-}
-.site-nav ul {
-  display: flex;
-  align-items: center;
-  gap: 1.6rem;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-.site-nav ul li {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-}
+.site-nav ul { display: flex; align-items: center; gap: 1.6rem; list-style: none; margin: 0; padding: 0; }
 .site-nav ul a:not(.btn) {
-  display: inline-flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-decoration: none;
-  padding: 0.3rem 0;
-  position: relative;
-  cursor: pointer;
-}
-
-.nav-text {
   color: var(--text-2);
+  text-decoration: none;
   font-family: var(--disp);
   font-size: 1.35rem;
   font-weight: 700;
   letter-spacing: 0.05em;
   text-transform: uppercase;
-  line-height: 1.1;
-  transition: color 0.2s ease;
+  padding: .3rem 0;
+  border-bottom: 2px solid transparent;
+  transition: color .2s, border-color .2s;
 }
-.site-nav ul a:not(.btn):hover .nav-text {
-  color: var(--text);
-}
-.site-nav ul a[aria-current="page"] .nav-text {
-  color: var(--text);
-}
-
-/* Navigation Line Indicator */
-.nav-indicator {
-  display: block;
-  width: 100%;
-  height: 2px;
-  background: transparent;
-  border-radius: 99px;
-  margin-top: 4px;
-  transition:
-    background-color 0.2s ease,
-    width 0.2s ease,
-    height 0.2s ease,
-    transform 0.2s ease,
-    box-shadow 0.2s ease;
-}
-.site-nav ul a:not(.btn):hover .nav-indicator {
-  background: var(--warm);
-}
-.site-nav ul a[aria-current="page"] .nav-indicator {
-  background: var(--accent);
-}
-
-/* ==========================================================================
-   Scrolled Minimalist Mode:
-   - Brand hides smoothly.
-   - Header collapses to 36px thin bar.
-   - Navbar choices stay directly on the right in their exact column positions.
-   - Letters disappear ("no letters").
-   - White lines for inactive choices, Blue line for active choice directly
-     under their respective navbar positions.
-   ========================================================================== */
-.site-header.scrolled {
-  background: rgba(13, 19, 27, 0.96);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.45);
-}
-.site-header.scrolled .header-inner {
-  min-height: 2.25rem; /* ~36px thin bar */
-  justify-content: flex-end; /* Keep directly under respective navbar choices */
-}
-.site-header.scrolled .brand {
-  opacity: 0;
-  pointer-events: none;
-  position: absolute;
-  left: 0;
-  transform: translateX(-14px);
-}
-.site-header.scrolled .site-nav {
-  display: flex !important;
-  opacity: 1 !important;
-  visibility: visible !important;
-  pointer-events: auto !important;
-}
-.site-header.scrolled .site-nav ul {
-  gap: 1.6rem;
-}
-.site-header.scrolled .site-nav ul a:not(.btn) {
-  min-width: 32px;
-  min-height: 28px;
-  padding: 0;
-  justify-content: center;
-}
-
-/* Hide letters completely in scrolled mode */
-.site-header.scrolled .nav-text {
-  display: none !important;
-}
-
-/* Transform indicator into line: white for inactive, blue for active */
-.site-header.scrolled .nav-indicator {
-  width: 26px;
-  height: 3px;
-  margin-top: 0;
-  background: #FFFFFF;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
-}
-
-/* Active page: Blue line with technical glow */
-.site-header.scrolled .site-nav ul a[aria-current="page"] .nav-indicator {
-  background: var(--accent);
-  width: 30px;
-  box-shadow: 0 0 10px rgba(45, 156, 219, 0.9), 0 0 2px rgba(45, 156, 219, 1);
-}
-
-/* Hover effects on lines */
-.site-header.scrolled .site-nav ul a:not(.btn):hover .nav-indicator {
-  background: #FFFFFF;
-  transform: scaleY(1.33);
-  box-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
-}
-.site-header.scrolled .site-nav ul a[aria-current="page"]:hover .nav-indicator {
-  background: var(--accent-hover);
-  transform: scaleY(1.33);
-  box-shadow: 0 0 12px rgba(98, 183, 238, 1);
-}
-
-/* Micro-tooltip on hover / keyboard focus in scrolled mode */
-.site-header.scrolled .site-nav ul a::after {
-  content: attr(data-title);
-  position: absolute;
-  top: calc(100% + 6px);
-  left: 50%;
-  transform: translateX(-50%) translateY(-2px);
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-  font-family: var(--disp);
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: #FFFFFF;
-  background: rgba(13, 19, 27, 0.96);
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  padding: 2px 7px;
-  border-radius: 3px;
-  white-space: nowrap;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.5);
-  transition: opacity 0.15s ease, transform 0.15s ease, visibility 0.15s;
-  z-index: 1000;
-}
-.site-header.scrolled .site-nav ul a:hover::after,
-.site-header.scrolled .site-nav ul a:focus-visible::after {
-  opacity: 1;
-  visibility: visible;
-  transform: translateX(-50%) translateY(0);
-}
+.site-nav ul a:not(.btn):hover { color: var(--text); border-bottom-color: var(--warm); }
+.site-nav ul a[aria-current="page"] { color: var(--text); border-bottom-color: var(--accent); }
 /* Modern 3-line Hamburger / Morphing X Button */
 .nav-toggle {
   display: none;
@@ -1314,57 +1136,6 @@ body.lightbox-open {
   .site-header {
     z-index: 500;
   }
-  .header-inner {
-    min-height: 4rem;
-  }
-  .site-header.scrolled .header-inner {
-    min-height: 2.25rem;
-    justify-content: flex-end;
-  }
-  .site-header.scrolled .nav-toggle {
-    display: none !important;
-  }
-  .site-header.scrolled .site-nav {
-    position: static !important;
-    width: auto !important;
-    height: auto !important;
-    background: transparent !important;
-    border: none !important;
-    box-shadow: none !important;
-    padding: 0 !important;
-    transform: none !important;
-    visibility: visible !important;
-    overflow: visible !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: flex-end !important;
-    z-index: auto !important;
-  }
-  .site-header.scrolled .site-nav-header,
-  .site-header.scrolled .site-nav-footer {
-    display: none !important;
-  }
-  .site-header.scrolled .site-nav ul {
-    flex-direction: row !important;
-    gap: 8px !important;
-    width: auto !important;
-    justify-content: flex-end !important;
-  }
-  .site-header.scrolled .site-nav li {
-    border-bottom: none !important;
-  }
-  .site-header.scrolled .site-nav ul a:not(.btn) {
-    min-width: 28px !important;
-    min-height: 26px !important;
-    padding: 0 !important;
-    justify-content: center !important;
-  }
-  .site-header.scrolled .nav-indicator {
-    width: 18px !important;
-  }
-  .site-header.scrolled .site-nav ul a[aria-current="page"] .nav-indicator {
-    width: 24px !important;
-  }
   body.nav-open .site-header {
     z-index: 1200;
     background: transparent;
@@ -1469,9 +1240,6 @@ body.lightbox-open {
   .site-nav ul a[aria-current="page"] {
     color: #FFFFFF;
     padding-left: 0.5rem;
-  }
-  .site-nav.open .nav-indicator {
-    display: none !important;
   }
   .site-nav .btn {
     display: block;
