@@ -1305,7 +1305,7 @@
    The h1 stays in the DOM, visually hidden, for SEO and screen readers. */
 @media (max-width: 760px) {
   .sheet-draw {
-    padding: 1.75rem;
+    padding: 1.25rem 1rem;
   }
 
   .sheet-draw-text {
@@ -1319,7 +1319,8 @@
 
   .sheet-photo {
     height: auto;
-    width: min(100%, 320px);
+    width: clamp(160px, 48vw, 200px);
+    margin: 0 auto;
   }
 
   .sheet-photo .ph,
