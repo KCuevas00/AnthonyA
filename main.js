@@ -46,6 +46,20 @@
       if (e.target.closest('a')) setOpen(false);
     });
 
+    // Keep Tab focus inside the open drawer (toggle + nav links)
+    document.addEventListener('keydown', function (e) {
+      if (e.key !== 'Tab' || !nav.classList.contains('open')) return;
+      var items = [toggle].concat(Array.prototype.slice.call(nav.querySelectorAll('a[href], button')));
+      var first = items[0], last = items[items.length - 1];
+      if (!nav.contains(document.activeElement) && document.activeElement !== toggle) {
+        e.preventDefault(); first.focus();
+      } else if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault(); last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault(); first.focus();
+      }
+    });
+
     document.addEventListener('keydown', function (e) {
       if (e.key === 'Escape' && nav.classList.contains('open')) {
         setOpen(false);
@@ -117,7 +131,7 @@
       // TODO: replace with the real endpoint. Example:
       // fetch(form.action, { method: 'POST', body: new FormData(form), headers: { Accept: 'application/json' } })
       //   .then(function (r) { if (!r.ok) throw new Error(); say('Message sent. I will reply by email.', 'ok'); form.reset(); })
-      //   .catch(function () { say('Message not sent. Email contact@example.com instead.', 'err'); });
+      //   .catch(function () { say('Message not sent. Email anthonyaughenbaugh@gmail.com instead.', 'err'); });
       say('Form handler not connected yet. See the TODO in main.js.', 'err');
     });
   }
