@@ -1301,25 +1301,27 @@
   }
 }
 
-/* Mobile: photo replaces the big name; the name cell takes over.
-   The h1 stays in the DOM, visually hidden, for SEO and screen readers. */
+/* Mobile: stacked profile card (photo, name, tagline, button).
+   The name now lives under the photo, so the title-block name cell is hidden. */
+.sheet-mobile-only {
+  display: none;
+}
+
 @media (max-width: 760px) {
   .sheet-draw {
-    padding: 1.25rem 1rem;
+    padding: 1.5rem 1rem 1.75rem;
   }
 
-  .sheet-draw-text {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    overflow: hidden;
-    clip-path: inset(50%);
-    white-space: nowrap;
+  .sheet-draw-inner {
+    flex-direction: column;
+    flex-wrap: nowrap;
+    gap: 1.9rem;
   }
 
   .sheet-photo {
+    order: -1;
     height: auto;
-    width: clamp(160px, 48vw, 200px);
+    width: clamp(130px, 38vw, 160px);
     margin: 0 auto;
   }
 
@@ -1327,5 +1329,46 @@
   .sheet-photo img {
     height: auto;
     aspect-ratio: 4 / 5;
+  }
+
+  .sheet-draw-text {
+    text-align: center;
+  }
+
+  .sheet-draw h1 {
+    font-size: clamp(2.5rem, 12.5vw, 3.4rem);
+    line-height: .95;
+  }
+
+  .sheet-draw-text p {
+    font-size: .72rem;
+    margin: .75rem auto 0;
+  }
+
+  .sheet-draw-text .sheet-mobile-only {
+    display: block;
+  }
+
+  .sheet-draw-text .sheet-tagline {
+    font-family: var(--font);
+    font-size: 1rem;
+    letter-spacing: 0;
+    text-transform: none;
+    line-height: 1.5;
+    max-width: 28ch;
+    color: var(--text);
+    margin: 1rem auto 0;
+  }
+
+  .sheet-draw .sheet-cta {
+    width: fit-content;
+    margin: 1.25rem auto 0;
+    font-size: 1.05rem;
+    text-transform: uppercase;
+    letter-spacing: .04em;
+  }
+
+  .tblock .name-cell {
+    display: none;
   }
 }
