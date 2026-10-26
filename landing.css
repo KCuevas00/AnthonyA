@@ -1360,4 +1360,16 @@
   .tblock .name-cell {
     display: none;
   }
+
+  /* Mobile: move interactive sheet links to the top of the title block */
+  .tblock a {
+    order: -1;
+    grid-column: span 2;
+  }
+
+  /* Compact 2-column layout for the secondary static info cells below */
+  .tblock div.wide {
+    grid-column: span 1;
+    min-height: 4.2rem;
+  }
 }
