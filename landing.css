@@ -1349,17 +1349,6 @@
     display: block;
   }
 
-  .sheet-draw-text .sheet-tagline {
-    font-family: var(--font);
-    font-size: 1rem;
-    letter-spacing: 0;
-    text-transform: none;
-    line-height: 1.5;
-    max-width: 28ch;
-    color: var(--text);
-    margin: 1rem auto 0;
-  }
-
   .sheet-draw .sheet-cta {
     width: fit-content;
     margin: 1.25rem auto 0;
