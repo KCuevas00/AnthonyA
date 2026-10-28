@@ -190,7 +190,7 @@
       var tag = card.querySelector('.gallery-tag');
 
       if (img && lbImg) {
-        lbImg.src = img.src;
+        lbImg.src = img.getAttribute('data-full') || img.src;
         lbImg.alt = img.alt || '';
       }
       if (lbCount) {
