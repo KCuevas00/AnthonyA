@@ -222,7 +222,11 @@
         </div>
 
         <div class="contact-right">
-          <form id="contact-form" class="form contact-form-card" action="#" method="post" novalidate>
+          <form id="contact-form" class="form contact-form-card" action="https://api.web3forms.com/submit" method="POST" novalidate>
+            <input type="hidden" name="access_key" value="88d67842-e977-4f3d-b7eb-e11fcbde506e">
+            <input type="hidden" name="subject" value="New Inquiry from Portfolio Website">
+            <input type="hidden" name="from_name" value="Anthony Aughenbaugh Portfolio">
+            <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
             <div class="field">
               <label for="name">Name</label>
               <input id="name" name="name" type="text" autocomplete="name" required>

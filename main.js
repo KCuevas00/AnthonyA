@@ -109,7 +109,7 @@
   if (form && status) {
     var say = function (msg, type) {
       status.textContent = msg;
-      status.className = 'form-status ' + type;
+      status.className = 'form-status ' + (type || '');
     };
     form.addEventListener('submit', function (e) {
       e.preventDefault();
@@ -127,12 +127,35 @@
         return;
       }
 
+      var submitBtn = form.querySelector('button[type="submit"]');
+      if (submitBtn) submitBtn.disabled = true;
       say('Sending…', '');
-      // TODO: replace with the real endpoint. Example:
-      // fetch(form.action, { method: 'POST', body: new FormData(form), headers: { Accept: 'application/json' } })
-      //   .then(function (r) { if (!r.ok) throw new Error(); say('Message sent. I will reply by email.', 'ok'); form.reset(); })
-      //   .catch(function () { say('Message not sent. Email anthonyaughenbaugh@gmail.com instead.', 'err'); });
-      say('Form handler not connected yet. See the TODO in main.js.', 'err');
+
+      var formData = new FormData(form);
+      fetch(form.action, {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json'
+        },
+        body: formData
+      })
+      .then(function (response) {
+        return response.json();
+      })
+      .then(function (data) {
+        if (data.success) {
+          say('Message sent successfully! I will reply by email.', 'ok');
+          form.reset();
+        } else {
+          say(data.message || 'Message not sent. Please email anthonyaughenbaugh@gmail.com directly.', 'err');
+        }
+      })
+      .catch(function () {
+        say('Message not sent. Please email anthonyaughenbaugh@gmail.com directly.', 'err');
+      })
+      .finally(function () {
+        if (submitBtn) submitBtn.disabled = false;
+      });
     });
   }
 
