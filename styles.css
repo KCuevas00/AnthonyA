@@ -1838,6 +1838,18 @@ body.lightbox-open {
   font-family: var(--mono);
 }
 
+.footer-meta-left a {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+
+.footer-meta-left a:hover {
+  color: var(--accent-hover);
+  text-decoration: underline;
+}
+
 .footer-meta-divider {
   color: var(--accent);
   opacity: 0.5;
